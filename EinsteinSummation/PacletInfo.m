@@ -3,7 +3,7 @@
 (* Created with the Wolfram Language : www.wolfram.com *)
 Paclet[
     Name -> "EinsteinSummation",
-    Version -> "0.1.0",
+    Version -> "0.2.0",
     WolframVersion -> "11.3+",
     MathematicaVersion -> "11.3+",
     Description -> "A Mathematica package that allows you to compute Einstein summation without pain.
