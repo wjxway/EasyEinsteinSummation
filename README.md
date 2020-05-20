@@ -66,7 +66,7 @@ If you get {0,0} then the package is (probably) working right!
 
 ## Basic Usage
 
-Here we will use a case of figuring out the Killing vector field in a 2-D spherical surface to illustrate the basic workflow of this package.
+As a demonstration of basic workflow, here we will try to figure out the Killing vector field in a 2-D spherical surface.
 
 
 
