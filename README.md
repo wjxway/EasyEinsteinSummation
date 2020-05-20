@@ -25,6 +25,6 @@ This package:
 
 
 
-You may download the Mathematica paclet here for convenient installation, or you might also download and copy the files yourself.
+You may download the Mathematica paclet [here](https://github.com/wjxway/EasyEinsteinSummation/releases) for convenient installation, or you might also download and copy the files yourself.
 
 For more details, please check the [wiki page](https://github.com/wjxway/EasyEinsteinSummation/wiki) or the Mathematica documentation.
