@@ -29,6 +29,18 @@ Protect[$tensorSymb];
 
 
 (* ::Subsubsubsection:: *)
+(*Convert T EX string into parse-able form*)
+
+
+(* ::Input::Initialization:: *)
+ConvertTeXExpression::usage="Convert TeX expression to parse-able form.";
+
+
+(* ::Input::Initialization:: *)
+ConvertTeXExpression[Tstr_String]:=StringReplace[Convert`TeX`TeXToBoxes[Tstr]//.{FormBox[a_,b_]:>a,StyleBox[a_,b_]:>a,RowBox[{str__String}]:>StringJoin[str],SubscriptBox[symb_String,sub_String]:>"\!\(\*SubscriptBox[\("<>symb<>"\),\("<>sub<>"\)]\)",SuperscriptBox[symb_String,super_String]:>"\!\(\*SuperscriptBox[\("<>symb<>"\),\("<>super<>"\)]\)",SubsuperscriptBox[symb_String,sub_String,super_String]:>"\!\(\*SubsuperscriptBox[\("<>symb<>"\),\("<>sub<>"\),\("<>super<>"\)]\)"},{" "->"\\ ",","->", "}]
+
+
+(* ::Subsubsubsection:: *)
 (*Determine symbols' order*)
 
 
@@ -155,7 +167,7 @@ ParseTensor::usage="ParseTensor[str_String] generates the standard Mathematica r
 
 
 (* ::Input::Initialization:: *)
-ParseTensor[str_String]:=StringCases[ToString@InputForm@Identity@str,TensorStringReplaceRule[ProcTensor]]
+ParseTensor[str_String]:=With[{strn=If[StringFreeQ[str,"scriptBox"],ConvertTeXExpression[str],str]},StringCases[ToString@InputForm@Identity@strn,TensorStringReplaceRule[ProcTensor]]]
 
 
 (* ::Subsubsubsection:: *)
@@ -164,7 +176,7 @@ ParseTensor[str_String]:=StringCases[ToString@InputForm@Identity@str,TensorStrin
 
 (* ::Input::Initialization:: *)
 ParseTensorExpression::usage="\!\(\*
-StyleBox[\"GetTensor\",\nFontWeight->\"Bold\"]\)\!\(\*
+StyleBox[\"ParseTensorExpression\",\nFontWeight->\"Bold\"]\)\!\(\*
 StyleBox[\"[\",\nFontWeight->\"Bold\"]\)\!\(\*
 StyleBox[\"str_String\",\nFontWeight->\"Bold\"]\)\!\(\*
 StyleBox[\"]\",\nFontWeight->\"Bold\"]\)\!\(\*
@@ -202,11 +214,11 @@ StyleBox[\".\",\nFontWeight->\"Plain\"]\)";
 
 
 (* ::Input::Initialization:: *)
-ParseTensorExpression[str_String]:=Module[{us="$tensorSymb",i=1,temp,symbs},Internal`InheritedBlock[{Times,CircleDot},
+ParseTensorExpression[str_String]:=Module[{strn=If[StringFreeQ[str,"scriptBox"],ConvertTeXExpression[str],str],us="$tensorSymb",i=1,temp,symbs},Internal`InheritedBlock[{Times,CircleDot},
 Unprotect@Times;
 ClearAttributes[Times,Orderless];
 
-temp=Reap[ToExpression@ToExpression@StringReplace[StringReplace[ToString@InputForm@Identity@str,TensorStringReplaceRule[(Sow[#];us<>"["<>ToString[i++]<>"]")&]],"\\!\\(TraditionalForm\\`"~~Shortest[cont__]~~"\\)":>cont]/.Times->CircleDot];
+temp=Reap[ToExpression@ToExpression@StringReplace[StringReplace[ToString@InputForm@Identity@strn,TensorStringReplaceRule[(Sow[#];us<>"["<>ToString[i++]<>"]")&]],"\\!\\(TraditionalForm\\`"~~Shortest[cont__]~~"\\)":>cont]/.Times->CircleDot];
 
 symbs=ProcTensor/@Flatten[temp[[2]],1];
 ((temp[[1]]/.$tensorSymb[i_]:>$tensorSymb[symbs[[i]]])/.Times->CircleDot)/.CircleDot[s_]:>s
@@ -234,7 +246,7 @@ myGrad[symb_]:=myGrad[symb,$vars]
 
 
 (* ::Input::Initialization:: *)
-$TensorDefinitions=Dataset[{}];
+$TensorDefinitions=Dataset[{<|"Symbol"->"g","Dimension"->2,"IndexPosition"->{-1,-1},"Value"->DiagonalMatrix@{-1,1,1,1}|>}];
 
 
 (* ::Input::Initialization:: *)
@@ -249,7 +261,16 @@ AddTensorToDataset::keys="The given tensor is not in the standard form. It shoul
 
 (* ::Input::Initialization:: *)
 AddTensorToDataset[ten_Association]:=If[!ContainsAll[Keys[ten],{"IndexPosition","Symbol","Value"}],Message[AddTensorToDataset::keys],
-$TensorDefinitions=$TensorDefinitions[DeleteCases[_?(#Symbol===ten["Symbol"]&&#IndexPosition===ten["IndexPosition"]&)]];AppendTo[$TensorDefinitions,Insert[ten[[{"Symbol","IndexPosition","Value"}]],"Dimensions"->Length@ten["IndexPosition"],2]];]
+$TensorDefinitions=DeleteCases[$TensorDefinitions,_?(#Symbol===ten["Symbol"]&&Length[#IndexPosition]===Length[ten["IndexPosition"]]&)];AppendTo[$TensorDefinitions,Insert[ten[[{"Symbol","IndexPosition","Value"}]],"Dimensions"->Length@ten["IndexPosition"],2]];]
+
+
+(* ::Text:: *)
+(*Directly add to Dataset without overriding other relevant terms.*)
+
+
+(* ::Input::Initialization:: *)
+DirectAddTensorToDataset[ten_Association]:=If[!ContainsAll[Keys[ten],{"IndexPosition","Symbol","Value"}],Message[AddTensorToDataset::keys],
+$TensorDefinitions=DeleteCases[$TensorDefinitions,_?(#Symbol===ten["Symbol"]&&#IndexPosition===ten["IndexPosition"]&)];AppendTo[$TensorDefinitions,Insert[ten[[{"Symbol","IndexPosition","Value"}]],"Dimensions"->Length@ten["IndexPosition"],2]];]
 
 
 (* ::Text:: *)
@@ -348,7 +369,7 @@ $\[CapitalGamma]=TensorContract[Inverse[$gd]\[TensorProduct](-TensorTranspose[my
 $dim=Length@$gd;
 
 AddTensorToDataset[<|"Symbol"->"g","IndexPosition"->{-1,-1},"Value"->$gd|>];
-AddTensorToDataset[<|"Symbol"->"g","IndexPosition"->{1,1},"Value"->$gu|>];
+DirectAddTensorToDataset[<|"Symbol"->"g","IndexPosition"->{1,1},"Value"->$gu|>];
 AddTensorToDataset[<|"Symbol"->"\[CapitalGamma]","IndexPosition"->{1,-1,-1},"Value"->$\[CapitalGamma]|>]
 )
 
@@ -474,7 +495,7 @@ ConvertTensorIndex::dtindex="Derivative symbol `1` has 0 or more than 2 indexes,
 
 
 (* ::Input::Initialization:: *)
-ConvertTensorIndex[s_Association]:=Module[{stored=Normal[$TensorDefinitions[Select[#Symbol==s["Symbol"]&&#Dimensions==s["Dimensions"]&]][First@*MinimalBy[Abs[#IndexPosition-s["IndexPosition"]]&]]],temps=s,temp,diff},
+ConvertTensorIndex[s_Association]:=Module[{stored=Normal[First@MinimalBy[Select[$TensorDefinitions,#Symbol==s["Symbol"]&&#Dimensions==s["Dimensions"]&],Abs[#IndexPosition-s["IndexPosition"]]&]],temps=s,temp,diff},
 If[Head[stored]=!=Association,Message[ConvertTensorIndex::nstored,s["Symbol"]];Abort[]];
 
 (*Raise and reduce index*)
@@ -482,7 +503,7 @@ diff=(stored["IndexPosition"]-s["IndexPosition"])/2;
 temp=stored["Value"];
 temp=AdjustIndex[temp,Thread[{Range@Length@#,#}]&@diff];
 AppendTo[temps,"Value"->temp];
-AddTensorToDataset[temps];
+DirectAddTensorToDataset[temps];
 ConvertTensorIndex[temps]
 ]
 
