@@ -18,9 +18,9 @@ This package:
    - Mathematica built-in non-linear type system or Math Assistant.
    - Windows' built-in Math Input Panel. (which allows you to **HANDWRITE** the expression!!!)
    - Word Equation or other sources which use MathML (e.g. MathType).
-   - ![](http://latex.codecogs.com/gif.latex?TeX) strings.
-2. **Use Operators everywhere!** You can use ![](http://latex.codecogs.com/gif.latex?\partial) and ![](http://latex.codecogs.com/gif.latex?\nabla) as operators! You may also get a result in the form of a operator!
-3. **Free Symmetrize!** Support a very free usage of symmetrize symbol () and anti-symmetrize symbol []. e.g. you can write ![](http://latex.codecogs.com/gif.latex?\nabla^{[\mu} A^{\nu]}), or even ![](http://latex.codecogs.com/gif.latex?A_{(\mu} \nabla_\nu B_{\sigma)}^{\ \ \nu}), which do summation on ![](http://latex.codecogs.com/gif.latex?\nu) first then symmetrize ![](http://latex.codecogs.com/gif.latex?\mu, \sigma).
+   - ![](https://latex.codecogs.com/svg.latex?TeX) strings.
+2. **Use Operators everywhere!** You can use ![](https://latex.codecogs.com/svg.latex?%5Cpartial) and ![](https://latex.codecogs.com/svg.latex?%5Cnabla) as operators! You may also get a result in the form of a operator!
+3. **Free Symmetrize!** Support a very free usage of symmetrize symbol () and anti-symmetrize symbol []. e.g. you can write ![](https://latex.codecogs.com/svg.latex?%5Cnabla%5E%7B%5B%5Cmu%7D%20A%5E%7B%5Cnu%5D%7D), or even ![](https://latex.codecogs.com/svg.latex?A_%7B%28%5Cmu%7D%20%5Cnabla_%5Cnu%20B_%7B%5Csigma%29%7D%5E%7B%5C%20%5C%20%5Cnu%7D), which do summation on ![](https://latex.codecogs.com/svg.latex?%5Cnu) first then symmetrize ![](https://latex.codecogs.com/svg.latex?%5Cmu%2C%20%5Csigma).
 4. **Support symbolic tensors!!!** You can work on subjects even if you don't know the exact value or even the exact dimension, thanks to Mathematica's latest feature!!!
 
 
