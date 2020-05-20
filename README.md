@@ -14,13 +14,13 @@ This package:
 
 ...and it has the following exceptional features:
 
-1. **WRITE AND COMPUTE!!!** You can painlessly input the expression using virtually anything:
+1. **WRITE AND COMPUTE!!! ** You can painlessly input the expression using virtually anything:
    - Mathematica built-in non-linear type system or Math Assistant.
    - Windows' built-in Math Input Panel. (which allows you to **HANDWRITE** the expression!!!)
    - Word Equation or other sources which use MathML (e.g. MathType).
-   - $\TeX$ strings.
-2. **Use Operators everywhere!** You can use $\partial$ and $\nabla$ as operators! You may also get a result in the form of a operator!
-3. **Free Symmetrize!** Support a very free usage of symmetrize symbol () and anti-symmetrize symbol []. e.g. you can write $\nabla^{[\mu} A^{\nu]}$, or even $A_{(\mu} \nabla_\nu B_{\sigma)}^{\ \ \nu}$, which do summation on $\nu$ first then symmetrize $\mu, \sigma$.
+   - ![](http://latex.codecogs.com/gif.latex?TeX) strings.
+2. **Use Operators everywhere!** You can use ![](http://latex.codecogs.com/gif.latex?\partial) and ![](http://latex.codecogs.com/gif.latex?\nabla) as operators! You may also get a result in the form of a operator!
+3. **Free Symmetrize!** Support a very free usage of symmetrize symbol () and anti-symmetrize symbol []. e.g. you can write ![](http://latex.codecogs.com/gif.latex?\nabla^{[\mu} A^{\nu]}), or even ![](http://latex.codecogs.com/gif.latex?A_{(\mu} \nabla_\nu B_{\sigma)}^{\ \ \nu}), which do summation on ![](http://latex.codecogs.com/gif.latex?\nu) first then symmetrize ![](http://latex.codecogs.com/gif.latex?\mu, \sigma).
 4. **Support symbolic tensors!!!** You can work on subjects even if you don't know the exact value or even the exact dimension, thanks to Mathematica's latest feature!!!
 
 
