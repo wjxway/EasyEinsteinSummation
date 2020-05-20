@@ -14,7 +14,7 @@ This package:
 
 ...and it has the following exceptional features:
 
-1. **WRITE AND COMPUTE!!! ** You can painlessly input the expression using virtually anything:
+1. **WRITE AND COMPUTE!!!** You can painlessly input the expression using virtually anything:
    - Mathematica built-in non-linear type system or Math Assistant.
    - Windows' built-in Math Input Panel. (which allows you to **HANDWRITE** the expression!!!)
    - Word Equation or other sources which use MathML (e.g. MathType).
