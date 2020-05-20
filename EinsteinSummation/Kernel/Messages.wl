@@ -5,6 +5,8 @@
 
 
 AddTensorToDataset::keys="The given tensor is not in the standard form. It should contain three keys: \"Symbol\",\"IndexPosition\", and \"Value\".";
+AddTensorToDataset::nmatchdim="The given tensor's dimension(`1`) and the dimension of space(`2`) do not match.";
+AddTensorToDataset::nmatchind="The given tensor's depth(`1`) and the number of indexes(`2`) do not match, it might be possible that you didn't input a square array.";
 
 
 SetMetric::dim="Dimension of \*SubscriptBox[\"g\", \"\[Mu]\[Nu]\"] is invalid!";

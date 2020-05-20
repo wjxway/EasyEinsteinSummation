@@ -20,7 +20,9 @@ ParseTensorExpression
 
 
 (*Global Variables*)
+{t,x,y,z}
 $TensorDefinitions
+$vars
 $constants
 SetVars
 SetMetric
@@ -40,7 +42,7 @@ EvaluateEisteinSummation
 Begin["`Private`"];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Process Strings into Tensor Expressions*)
 
 
@@ -56,7 +58,7 @@ $tensorSymb[s_Association][query_]:=s[query];
 Protect[$tensorSymb];
 
 
-(* ::Subsubsection:: *)
+(* ::Subsubsection::Closed:: *)
 (*Parse String*)
 
 
@@ -175,7 +177,7 @@ symbs=ProcTensor/@Flatten[temp[[2]],1];
 ]]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Global Variables*)
 
 
@@ -196,12 +198,23 @@ myGrad[symb_]:=myGrad[symb,$vars]
 
 
 (* ::Input::Initialization::Plain:: *)
-$TensorDefinitions=Dataset[{<|"Symbol"->"g","Dimension"->2,"IndexPosition"->{-1,-1},"Value"->DiagonalMatrix@{-1,1,1,1}|>}];
+$TensorDefinitions=Dataset[{<|"Symbol"->"g","Dimension"->2,"IndexPosition"->{-1,-1},"Value"->DiagonalMatrix@{1,1,1,1}|>}];
 
 
 (* ::Input::Initialization::Plain:: *)
-AddTensorToDataset[ten_Association]:=If[!ContainsAll[Keys[ten],{"IndexPosition","Symbol","Value"}],Message[AddTensorToDataset::keys],
-$TensorDefinitions=DeleteCases[$TensorDefinitions,_?(#Symbol===ten["Symbol"]&&Length[#IndexPosition]===Length[ten["IndexPosition"]]&)];AppendTo[$TensorDefinitions,Insert[ten[[{"Symbol","IndexPosition","Value"}]],"Dimensions"->Length@ten["IndexPosition"],2]];]
+AddTensorToDataset[ten_Association]:=(If[!ContainsAll[Keys[ten],{"IndexPosition","Symbol","Value"}],Message[AddTensorToDataset::keys];Abort[]];
+If[Length@$vars!=Length@ten["Value"],Message[AddTensorToDataset::nmatchdim,Length@ten["Value"],Length@$vars];Abort[]];
+If[(Length[Dimensions@ten["Value"]]<Length@ten["IndexPosition"])||(!(Equal@@(Dimensions[ten["Value"]][[;;Length@ten["IndexPosition"]]]))),Message[AddTensorToDataset::nmatchind,Length@ten["Value"],Length@ten["IndexPosition"]];Abort[]];
+$TensorDefinitions=DeleteCases[$TensorDefinitions,_?(#Symbol===ten["Symbol"]&&Length[#IndexPosition]===Length[ten["IndexPosition"]]&)];AppendTo[$TensorDefinitions,Insert[ten[[{"Symbol","IndexPosition","Value"}]],"Dimensions"->Length@ten["IndexPosition"],2]];)
+
+
+AddTensorToDataset[ten_Association,val_List]:=Block[{ten1=ten},AddTensorToDataset[ten1["Value"]=val;ten1]];
+
+
+AddTensorToDataset[ten_$tensorSymb,others___]:=AddTensorToDataset[ten[[1]],others];
+
+
+AddTensorToDataset[ten_String,val_List]:=AddTensorToDataset[ParseTensor[ten][[1]],val];
 
 
 (* ::Text:: *)
@@ -222,17 +235,22 @@ $constants={};
 
 
 (* ::Input::Initialization::Plain:: *)
-SetVars[vars_]:=($vars=vars)
+SetVars[vars_]:=If[Length@vars!=Length@$vars,
+$TensorDefinitions=Dataset[{<|"Symbol"->"g","Dimension"->2,"IndexPosition"->{-1,-1},"Value"->DiagonalMatrix@ConstantArray[1,Length@vars]|>}];
+$vars=vars;
+SetMetric[DiagonalMatrix@ConstantArray[1,Length@vars]],
+$vars=vars];
+
 SetMetric[g_]:=(
 If[(Length[#]!=2||#[[1]]!=#[[2]])&@TensorDimensions[g],Message[SetMetric::dim]];
 $gd=g;
 $gu=Inverse[$gd];
-$\[CapitalGamma]=TensorContract[Inverse[$gd]\[TensorProduct](-TensorTranspose[myGrad[$gd],{1,3,2}]+TensorTranspose[myGrad[$gd],{2,1,3}]+TensorTranspose[myGrad[$gd],{2,3,1}]),{{2,4}}]/2;
+$\[CapitalGamma]=TensorContract[Inverse[$gd]\[TensorProduct]With[{p=myGrad[$gd]},-p+TensorTranspose[p,{3,1,2}]+TensorTranspose[p,{2,3,1}]],{{2,3}}]/2;
 $dim=Length@$gd;
 
 AddTensorToDataset[<|"Symbol"->"g","IndexPosition"->{-1,-1},"Value"->$gd|>];
 DirectAddTensorToDataset[<|"Symbol"->"g","IndexPosition"->{1,1},"Value"->$gu|>];
-AddTensorToDataset[<|"Symbol"->"\[CapitalGamma]","IndexPosition"->{1,-1,-1},"Value"->$\[CapitalGamma]|>]
+AddTensorToDataset[<|"Symbol"->"\[CapitalGamma]","IndexPosition"->{1,-1,-1},"Value"->$\[CapitalGamma]|>];
 )
 
 
@@ -241,7 +259,7 @@ SetVars[{t,x,y,z}];
 SetMetric[SparseArray@DiagonalMatrix[{-1,1,1,1}]];
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Process a single Tensor Expression*)
 
 
@@ -249,8 +267,11 @@ SetMetric[SparseArray@DiagonalMatrix[{-1,1,1,1}]];
 (*Move Tensor Index*)
 
 
+myTensorTranspose[ten_,a_<->b_]:=If[a==b,ten,TensorTranspose[ten,Cycles[{{a,b}}]]]
+
+
 (* ::Input::Initialization::Plain:: *)
-AdjustIndex[mat_,pos_List]:=Fold[TensorTranspose[If[#2[[2]]==1,$gu,$gd].TensorTranspose[#,Cycles[{{#2[[1]],1}}]],Cycles[{{#2[[1]],1}}]]&,mat,Select[pos,#[[2]]==1||#[[2]]==-1&]]
+AdjustIndex[mat_,pos_List]:=Fold[myTensorTranspose[If[#2[[2]]==1,$gu,$gd].myTensorTranspose[#,1<->#2[[1]]],1<->#2[[1]]]&,mat,Select[pos,#[[2]]==1||#[[2]]==-1&]]
 
 
 (* ::Text:: *)
@@ -323,7 +344,7 @@ temps
 ConvertTensorIndex[s_Association]/;(s["Symbol"]==="\[PartialD]"||s["Symbol"]=="\[Del]"):=If[s["Dimensions"]=!=1,Message[ConvertTensorIndex::dtindex,s];Abort[],s]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Process Addition, Multiplication and Derivatives of Tensor Expressions*)
 
 
@@ -454,7 +475,7 @@ TensorOperate[TenA_$tensorSymb,TenB_$tensorSymb]:=Module[{s=Merge[{TenA,TenB}[[;
 TensorOperate[TenA_$tensorSymb,TenB_$tensorSymb]/;(TenA["Symbol"]==="\[PartialD]"):=Module[{s=Merge[{TenA,TenB}[[;;,1]],Identity],tempval},
 (*value for \!\(
 \*SubscriptBox[\(\[PartialD]\), \(\[Mu]\)]T\)*)
-tempval=TensorTranspose[myGrad[TenB["Value"]],Cycles[{Range@Total@s["Dimensions"]}]];
+tempval=myGrad[TenB["Value"]];
 
 (*contract/symmetrize etc.*)
 $tensorSymb@ConvertTensorIndex[<|"Symbol"->RandomT$,"IndexName"->Catenate@s["IndexName"],"Dimensions"->Total@s["Dimensions"],"IndexPosition"->Catenate@s["IndexPosition"],"SymmetryMarker"->(Join[#[[1]],{#[[1]]+1,#[[2]]}&/@#[[2]]]&/@Merge[s["SymmetryMarker"],Identity]),"Value"->If[TenA[[1,"IndexPosition",1]]==1,$gu.tempval,tempval]|>]]
