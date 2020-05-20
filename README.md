@@ -22,9 +22,9 @@ This package has the following exceptional features which significantly reduces 
    - Mathematica built-in non-linear type system or Math Assistant.
    - Windows' built-in Math Input Panel. (which allows you to **HANDWRITE** the expression!!!)
    - Word Equation or other sources which use MathML (e.g. MathType).
-   - ![](https://latex.codecogs.com/svg.latex?TeX) strings (Sometimes buggy due to internal errors of Mathematica).
-2. **Use Operators everywhere!** You can use ![](https://latex.codecogs.com/svg.latex?%5Cpartial) and ![](https://latex.codecogs.com/svg.latex?%5Cnabla) as operators! You may also get a result in the form of a operator!
-3. **Free Symmetrize!** Support a very free usage of symmetrize symbol () and anti-symmetrize symbol []. e.g. you can write ![](https://latex.codecogs.com/svg.latex?%5Cnabla%5E%7B%5B%5Cmu%7D%20A%5E%7B%5Cnu%5D%7D), or even ![](https://latex.codecogs.com/svg.latex?A_%7B%28%5Cmu%7D%20%5Cnabla_%5Cnu%20B_%7B%5Csigma%29%7D%5E%7B%5C%20%5C%20%5Cnu%7D), which do summation on ![](https://latex.codecogs.com/svg.latex?%5Cnu) first then symmetrize ![](https://latex.codecogs.com/svg.latex?%5Cmu%2C%20%5Csigma).
+   - $TeX$ strings (Sometimes buggy due to internal errors of Mathematica).
+2. **Use Operators everywhere!** You can use $\partial$ and $\nabla$ as operators! You may also get a result in the form of a operator!
+3. **Free Symmetrize!** Support a very free usage of symmetrize symbol () and anti-symmetrize symbol []. e.g. you can write $\nabla^{[\mu} A^{\nu]}$, or even $A_{(\mu} \nabla_\nu B_{\sigma)}^{\ \ \nu}$, which do summation on $\nu$ first then symmetrize $\mu, \sigma$.
 4. **Support symbolic tensors!!!** You can work on subjects even if you don't know the exact value or even the exact dimension, thanks to Mathematica's latest feature!!!
 
 
@@ -53,15 +53,14 @@ To load and test the package, execute
 
 ```mathematica
 <<EinsteinSummation`
-AddTensorToDataset[<|"Symbol" -> "A", "IndexPosition" -> {1}, 
-  "Value" -> {p, ax, ay, az}|>]
-EvaluateEisteinSummation["\!\(\*SuperscriptBox[\(\[Del]\), \(\[Nu]\)]\
-\)\!\(\*FormBox[\(\*SubscriptBox[\(\[Del]\), \
-\([\[Mu]\)]\*SubscriptBox[\(A\), \(\(\[Nu]\)\(]\)\)]\),
-TraditionalForm]\)"]["Value"]
+SetVars[{x,y}];
+$constants={a,b};
+SetMetric[DiagonalMatrix@{a,b}]
+AddTensorToDataset[<|"Symbol"->"A","IndexPosition"->{-1},"Value"->{p[x,y],q[x,y]}|>]
+EvaluateEisteinSummation["\*SuperscriptBox[\(g\), \(pq\)]\*SubscriptBox[\(\[Del]\), \([p\)]\*SubscriptBox[\(\[Del]\), \(\(q\)\(]\)\)]\*SuperscriptBox[\(A\), \(r\)]"]["Value"]//Normal
 ```
 
-If you get {0,0,0,0} then the package is (probably) working right!
+If you get {0,0} then the package is (probably) working right!
 
 
 
@@ -81,14 +80,14 @@ Here we will use a case of figuring out the Killing vector field in a 2-D spheri
 
 By default, variables are {t,x,y,z} and metric is diag{-1,1,1,1}, which corresponds to 4-D Minkovski spacetime.
 
-Here, we are working on a spherical surface ![](https://latex.codecogs.com/svg.latex?ds%5E2%3Dd%5Ctheta%5E2%2Bsin%5E2%5Ctheta%5C%2Cd%5Cphi%5E2), so ![](https://latex.codecogs.com/svg.latex?g_%7B%5Cmu%5Cnu%7D%3Ddiag%5C%7B1%2Csin%5E2%5Ctheta%5C%7D). To optimize your reading, we will use t and p as parameters.
+Here, we are working on a spherical surface $ds^2=d\theta^2+sin^2\theta\,d\phi^2$, so $g_{\mu\nu}=diag\{1,sin^2\theta\}$. To optimize your reading, we will use t and p as parameters.
 
 ```mathematica
 SetVars[{t, p}];
 SetMetric[DiagonalMatrix@{1, Sin[t]^2}];
 ```
 
-**Step 3.** Then we need to define a (1,0) style vector ![](https://latex.codecogs.com/svg.latex?K%5E%5Cmu) as Killing vector.
+**Step 3.** Then we need to define a (1,0) style vector $K^\mu$ as Killing vector.
 
 Here we encountered our first vector(tensor). To input it, you have two choices:
 
@@ -100,7 +99,7 @@ Here we encountered our first vector(tensor). To input it, you have two choices:
 
 2. Or you might do the other way, You can:
 
-   1. Use Mathematica's built-in Basic Math Assistant (which can be found under Palettes menu) and type in ![](https://latex.codecogs.com/svg.latex?K%5E%5Cmu) directly, and write like.
+   1. Use Mathematica's built-in Basic Math Assistant (which can be found under Palettes menu) and type in $K^\mu$ directly, and write like.
 
    ```mathematica
    AddTensorToDataset["\!\(\*SuperscriptBox[\(K\), \(\[Mu]\)]\)", {kt[t, p], kp[t, p]}];
@@ -128,6 +127,14 @@ Here we encountered our first vector(tensor). To input it, you have two choices:
 You will obtain a ``tensorSymb`` object which shows you all sorts of information about the resulting tensor. From ``res["IndexName"]`` you know that the free indexes are $\mu,\;\nu$ and there're no symmetry marker left. and from ``res["IndexPosition"]`` you know that the result is a (0,2) type tensor. an finally, from ``res["Value"]`` you know the computation's result, which is in the form of ``SparseArray`` in this case.
 
 You can do further analysis like ``TensorSymmetry@res["Value"]`` which tells you that the resulting tensor is symmetric.
+
+If you want to do something more later, you can also store it like:
+
+```mathematica
+AddTensorToDataset["Q", res];
+```
+
+so next time when you want to use this you only need to write Q in your string.
 
 
 

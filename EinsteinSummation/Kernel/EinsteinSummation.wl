@@ -186,7 +186,7 @@ symbs=ProcTensor/@Flatten[temp[[2]],1];
 
 
 (* ::Input::Initialization::Plain:: *)
-myGrad[symb:(Except[_Symbol]),vars_.]:=Dt[symb,#,Constants->Join[DeleteCases[$vars,#],$constants]]&/@$vars
+myGrad[symb_,vars_.]/;(Head[symb]=!=Symbol||Head[TensorDimensions[symb]]===TensorDimensions||TensorDimensions[symb]=={}):=Dt[symb,#,Constants->Join[DeleteCases[$vars,#],$constants]]&/@$vars
 myGrad[symb_]:=myGrad[symb,$vars]
 
 
@@ -211,10 +211,16 @@ $TensorDefinitions=DeleteCases[$TensorDefinitions,_?(#Symbol===ten["Symbol"]&&Le
 AddTensorToDataset[ten_Association,val_List]:=Block[{ten1=ten},AddTensorToDataset[ten1["Value"]=val;ten1]];
 
 
+AddTensorToDataset[ten_String,val_List]:=AddTensorToDataset[ParseTensor[ten][[1]],val];
+
+
 AddTensorToDataset[ten_$tensorSymb,others___]:=AddTensorToDataset[ten[[1]],others];
 
 
-AddTensorToDataset[ten_String,val_List]:=AddTensorToDataset[ParseTensor[ten][[1]],val];
+AddTensorToDataset[ten_String,ten2_Association]:=AddTensorToDataset[ReplacePart[ten2,"Symbol"->ten]];
+
+
+AddTensorToDataset[ten_String,ten2_$tensorSymb]:=AddTensorToDataset[ReplacePart[ten2[[1]],"Symbol"->ten]]
 
 
 (* ::Text:: *)
@@ -442,7 +448,7 @@ Total[cat[[1]]]+Switch[Length@cat[[2]],
 0,0,
 1,cat[[2,1]],
 _,targetorder=Ordering@cat[[2,1,1,"IndexName"]];
-ReplacePart[cat[[2,1]],{{1,Key["Symbol"]}->RandomT$,{1,Key["Value"]}->Total[TensorTranspose[#["Value"],targetorder[[Ordering@Ordering@#["IndexName"]]]]&/@cat[[2,;;,1]]]}]
+ReplacePart[cat[[2,1]],{{1,"Symbol"}->RandomT$,{1,"Value"}->Total[TensorTranspose[#["Value"],targetorder[[Ordering@Ordering@#["IndexName"]]]]&/@cat[[2,;;,1]]]}]
 ]
 ]
 
@@ -512,7 +518,7 @@ $tensorSymb@ConvertTensorIndex[<|"Symbol"->RandomT$,"IndexName"->indname,"Dimens
 
 
 (* ::Input::Initialization::Plain:: *)
-TensorOperate[TenA_$tensorSymb,TenB_]/;(TenA["Symbol"]==="\[PartialD]"||TenA["Symbol"]=="\[Del]"):=ReplacePart[TenA,{{1,Key["Symbol"]}->RandomT$,{1,Key["Value"]}->myGrad[TenB,$vars]}]
+TensorOperate[TenA_$tensorSymb,TenB_]/;(TenA["Symbol"]==="\[PartialD]"||TenA["Symbol"]=="\[Del]"):=$tensorSymb@ReplacePart[Append[TenA[[1]],"Value"->myGrad[TenB,$vars]],"Symbol"->RandomT$]
 
 
 (* ::Text:: *)
@@ -520,8 +526,8 @@ TensorOperate[TenA_$tensorSymb,TenB_]/;(TenA["Symbol"]==="\[PartialD]"||TenA["Sy
 
 
 (* ::Input::Initialization::Plain:: *)
-TensorOperate[TenA_$tensorSymb,TenB_]:=ReplacePart[TenA,{{1,Key["Symbol"]}->RandomT$,{1,Key["Value"]}->(TenA["Value"]*TenB)}]
-TensorOperate[TenA_,TenB_$tensorSymb]:=ReplacePart[TenB,{{1,Key["Symbol"]}->RandomT$,{1,Key["Value"]}->(TenA*TenB["Value"])}]
+TensorOperate[TenA_$tensorSymb,TenB_]:=ReplacePart[TenA,{{1,"Symbol"}->RandomT$,{1,"Value"}->(TenA["Value"]*TenB)}]
+TensorOperate[TenA_,TenB_$tensorSymb]:=ReplacePart[TenB,{{1,"Symbol"}->RandomT$,{1,"Value"}->(TenA*TenB["Value"])}]
 
 
 (* ::Text:: *)

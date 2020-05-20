@@ -53,15 +53,14 @@ To load and test the package, execute
 
 ```mathematica
 <<EinsteinSummation`
-AddTensorToDataset[<|"Symbol" -> "A", "IndexPosition" -> {1}, 
-  "Value" -> {p, ax, ay, az}|>]
-EvaluateEisteinSummation["\!\(\*SuperscriptBox[\(\[Del]\), \(\[Nu]\)]\
-\)\!\(\*FormBox[\(\*SubscriptBox[\(\[Del]\), \
-\([\[Mu]\)]\*SubscriptBox[\(A\), \(\(\[Nu]\)\(]\)\)]\),
-TraditionalForm]\)"]["Value"]
+SetVars[{x,y}];
+$constants={a,b};
+SetMetric[DiagonalMatrix@{a,b}]
+AddTensorToDataset[<|"Symbol"->"A","IndexPosition"->{-1},"Value"->{p[x,y],q[x,y]}|>]
+EvaluateEisteinSummation["\*SuperscriptBox[\(g\), \(pq\)]\*SubscriptBox[\(\[Del]\), \([p\)]\*SubscriptBox[\(\[Del]\), \(\(q\)\(]\)\)]\*SuperscriptBox[\(A\), \(r\)]"]["Value"]//Normal
 ```
 
-If you get {0,0,0,0} then the package is (probably) working right!
+If you get {0,0} then the package is (probably) working right!
 
 
 
@@ -128,6 +127,14 @@ Here we encountered our first vector(tensor). To input it, you have two choices:
 You will obtain a ``tensorSymb`` object which shows you all sorts of information about the resulting tensor. From ``res["IndexName"]`` you know that the free indexes are $\mu,\;\nu$ and there're no symmetry marker left. and from ``res["IndexPosition"]`` you know that the result is a (0,2) type tensor. an finally, from ``res["Value"]`` you know the computation's result, which is in the form of ``SparseArray`` in this case.
 
 You can do further analysis like ``TensorSymmetry@res["Value"]`` which tells you that the resulting tensor is symmetric.
+
+If you want to do something more later, you can also store it like:
+
+```mathematica
+AddTensorToDataset["Q", res];
+```
+
+so next time when you want to use this you only need to write Q in your string.
 
 
 
