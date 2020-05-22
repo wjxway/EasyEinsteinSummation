@@ -138,4 +138,4 @@ so next time when you want to use this you only need to write Q in your string.
 
 
 
-For more details, please check the Mathematica documentation built in the package (Woking...). (The package is properly written so the documentation can seamlessly integrate into the documentation center!)
+For more details, please check the Mathematica documentation built in the package (Working...). (The package is properly written so the documentation can seamlessly integrate into the documentation center!)
