@@ -1,0 +1,250 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10036,        240]
+NotebookOptionsPosition[      1515,         47]
+NotebookOutlinePosition[      9706,        235]
+CellTagsIndexPosition[      9663,        232]
+WindowTitle->SetVars
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {
+    TemplateBox[{"Einstein Summation Package Symbol", 
+      RGBColor[
+      0.023521148023270023`, 0.42745085139216266`, 0.7294108638979683]},
+     "PacletName"], Cell[
+    "", "AnchorBar",ExpressionUUID->"221653d1-772d-48b8-aac1-a0c8b6e5d124"]}
+  }]], "AnchorBarGrid",
+ CellID->393041134,ExpressionUUID->"d088dfe9-2390-4cd2-bb69-5e0d42ae1a5c"],
+
+Cell["EinsteinSummation`", "ContextNameCell",
+ CellID->246327181,ExpressionUUID->"d893169d-38fc-4558-8e4c-1363fea24fd0"],
+
+Cell["SetVars", "ObjectName",
+ CellID->368807709,ExpressionUUID->"dc27d310-9d89-429e-8826-a391c8f0368a"],
+
+Cell[TextData[{
+ "Introduced in ",
+ Cell["0.1.0", "HistoryVersion",ExpressionUUID->
+  "bd540a47-f689-4fde-8d91-de8163910fc9"],
+ " | Updated in ",
+ Cell["0.2.0", "HistoryVersion",ExpressionUUID->
+  "044345eb-5277-4596-a7fc-8c2b28b345ca"]
+}], "History",
+ CellID->685502139,ExpressionUUID->"e83b3d4f-8e77-4e20-8475-c58c6878f5bd"]
+},
+Saveable->False,
+WindowSize->{582, 418},
+WindowMargins->{{183.5, Automatic}, {Automatic, 39.5}},
+WindowTitle->"SetVars",
+Visible->True,
+TaggingRules->{
+ "NewStyles" -> True, "Openers" -> {}, 
+  "Metadata" -> {
+   "title" -> "SetVars", "description" -> "", "label" -> " Symbol", "context" -> 
+    "EinsteinSummation`", "index" -> True, "language" -> "en", "paclet" -> "",
+     "type" -> "Symbol", "windowtitle" -> "SetVars", "uri" -> 
+    "EinsteinSummation/ReferencePages/Symbols/SetVars", "summary" -> "", 
+    "keywords" -> {}, "WorkflowDockedCell" -> ""}, "LinkTrails" -> "", 
+  "SearchTextTranslated" -> ""},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (March 18, 2020)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> 
+     FrontEnd`FileName[{"Wolfram"}, "Reference.nb", CharacterEncoding -> 
+       "UTF-8"]]], 
+   Cell[
+    StyleData["Spacer1"], TemplateBoxOptions -> {DisplayFunction -> (StyleBox[
+        GraphicsBox[{}, ImageSize -> {#, 0}, 
+         BaselinePosition -> (Scaled[0] -> Baseline)], CacheGraphics -> 
+        False]& ), InterpretationFunction -> (InterpretationBox["", 
+        Spacer[#]]& ), Tooltip -> None}], 
+   Cell[
+    StyleData["Spacer2"], TemplateBoxOptions -> {DisplayFunction -> (StyleBox[
+        GraphicsBox[{}, ImageSize -> {#, #2}, 
+         BaselinePosition -> (Scaled[0] -> Baseline)], CacheGraphics -> 
+        False]& ), InterpretationFunction -> (InterpretationBox["", 
+        Spacer[{#, #2}]]& ), Tooltip -> None}], 
+   Cell[
+    StyleData["RefLinkPlain", StyleDefinitions -> StyleData["RefLink"]]], 
+   Cell[
+    StyleData["OrangeLink"], TemplateBoxOptions -> {DisplayFunction :> (TagBox[
+        ButtonBox[
+         StyleBox[#, FontColor -> Dynamic[
+            If[
+             CurrentValue["MouseOver"], 
+             RGBColor[0.854902, 0.396078, 0.145098], Inherited]]], 
+         ButtonData -> #2], 
+        MouseAppearanceTag["LinkHand"]]& )}, 
+    ButtonBoxOptions -> {BaseStyle -> {"Link", "GuideFunctionsSubsection"}}], 
+   Cell[
+    StyleData["WebLink"], AutoSpacing -> False], 
+   Cell[
+    StyleData["SectionOpener"], ShowGroupOpener -> False, 
+    TemplateBoxOptions -> {DisplayFunction -> (Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            RotationBox[
+             StyleBox[
+              GraphicsBox[{
+                Thickness[0.18], #4, 
+                LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1,
+                PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], 
+              Magnification -> Dynamic[0.68 CurrentValue[Magnification]], 
+              StripOnInput -> False], BoxRotation -> FEPrivate`Switch[
+               FrontEnd`CurrentValue[
+                FrontEnd`EvaluationNotebook[], #3], True, 0, Open, 0, 
+               Blank[], Rational[1, 2] Pi], 
+             BoxRotationPoint -> {-1.65, -1}]]], 
+          Cell[
+           BoxData[
+            TemplateBox[{1}, "Spacer1"]]], #}]]& )}], 
+   Cell[
+    StyleData["LinkSectionHeader"], CellFrame -> {{False, False}, {False, 
+       FEPrivate`Less[FEPrivate`$VersionNumber, 12.]}}, WholeCellGroupOpener -> 
+    False, CellMargins -> FEPrivate`If[
+      FEPrivate`Less[FEPrivate`$VersionNumber, 11.1], 0, 
+      FEPrivate`If[
+       FEPrivate`Less[FEPrivate`$VersionNumber, 12.], {{24, 22}, {8, 
+       28}}, -2]], CellElementSpacings -> {"CellMinHeight" -> FEPrivate`If[
+        FEPrivate`Less[FEPrivate`$VersionNumber, 12.], Inherited, 0], 
+      "ClosedCellHeight" -> FEPrivate`If[
+        FEPrivate`Less[FEPrivate`$VersionNumber, 12.], Inherited, 0]}, 
+    CellOpen -> FEPrivate`Less[FEPrivate`$VersionNumber, 12.], 
+    TemplateBoxOptions -> {DisplayFunction -> (#& )}], 
+   Cell[
+    StyleData["SpacerMargins"], CellMargins -> FEPrivate`If[
+      FEPrivate`Less[FEPrivate`$VersionNumber, 11.1], {{29, 24}, {1, 1}}, 
+      FEPrivate`If[
+       FEPrivate`Less[FEPrivate`$VersionNumber, 12.], {{36, 24}, {0, 2}}, {{
+       24, 22}, {7, 28}}]]], 
+   Cell[
+    StyleData["LinkSectionContent"], CellFrame -> {{False, False}, {False, 
+       FEPrivate`If[
+        FEPrivate`Less[FEPrivate`$VersionNumber, 12.], False, True]}}, 
+    CellMargins -> FEPrivate`If[
+      FEPrivate`Less[FEPrivate`$VersionNumber, 11.1], {{28, 24}, {25, 14}}, 
+      FEPrivate`If[
+       FEPrivate`Less[FEPrivate`$VersionNumber, 12.], {{37, 24}, {0, 2}}, {{
+       24, 22}, {7, 28}}]], CellGroupingRules -> "NormalGrouping", FontSize -> 
+    16, FontWeight -> "Normal", FontColor -> GrayLevel[0.545098], Background -> 
+    None, TemplateBoxOptions -> {DisplayFunction -> FEPrivate`If[
+        FEPrivate`Less[FEPrivate`$VersionNumber, 12.], #3& , GridBox[{{
+           DynamicBox[
+            FEPrivate`ImportImage[
+             FrontEnd`FileName[{"Documentation", "FooterIcons"}, #]]], 
+           
+           GridBox[{{#2}, {#3}}, BaseStyle -> {CellFrame -> 0}, 
+            GridBoxSpacings -> {"Rows" -> {0, 0.7}}]}}, 
+         GridBoxSpacings -> {"Columns" -> {{0.9}}}]& ]}, 
+    GridBoxOptions -> {
+     GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+      GridBoxSpacings -> {"Rows" -> {0, {
+           FEPrivate`If[
+            FEPrivate`Less[FEPrivate`$VersionNumber, 12.], 0.3, 0.2]}}}}], 
+   Cell[
+    StyleData["SectionHeaderSpacer"], CellMargins -> -2, 
+    CellElementSpacings -> {"CellMinHeight" -> 0, "ClosedCellHeight" -> 0}, 
+    CellOpen -> False], 
+   Cell[
+    StyleData["SectionFooterSpacer"], CellMargins -> -2, 
+    CellElementSpacings -> {"CellMinHeight" -> 0, "ClosedCellHeight" -> 0}, 
+    CellOpen -> False], 
+   Cell[
+    StyleData["PacletName"], 
+    TemplateBoxOptions -> {DisplayFunction -> (GridBox[{{
+          ItemBox[
+           Cell[
+            BoxData[
+             RowBox[{
+               TemplateBox[{8}, "Spacer1"], 
+               Cell[#, "PacletNameCell", TextAlignment -> Center], 
+               TemplateBox[{8}, "Spacer1"]}]], TextAlignment -> Center], 
+           Background -> #2, ItemSize -> Full], ""}}, 
+        GridBoxAlignment -> {"Rows" -> {{Center}}}, 
+        GridBoxItemSize -> {"Columns" -> {Full, 
+            Scaled[0.02]}, "Rows" -> {{2.5}}}]& )}], 
+   Cell[
+    StyleData["HeaderMenuArrow"], 
+    TemplateBoxOptions -> {DisplayFunction -> (GraphicsBox[{
+         GrayLevel[2/3], 
+         Thickness[0.13], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        ImageSize -> 20, PlotRange -> {{-3, 4}, {-1, 1}}]& )}], 
+   Cell[
+    StyleData["ContextNameCell"], Editable -> False, ShowCellBracket -> False,
+     CellMargins -> {{24, 22}, {0, 0}}, FontFamily -> "Source Sans Pro", 
+    FontSize -> 18, FontWeight -> "Bold", FontColor -> GrayLevel[
+      Rational[44, 85]]], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["UnevaluatedInput", StyleDefinitions -> StyleData["Input"]]], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData["NotesThumbnails"], ShowCellBracket -> False, 
+    CellMargins -> {{32, Inherited}, {0, 0}}, 
+    CellElementSpacings -> {"CellMinHeight" -> 0, "ClosedCellHeight" -> 0}, 
+    CellOpen -> FEPrivate`Switch[
+      FrontEnd`CurrentValue[
+       FrontEnd`EvaluationNotebook[], {
+       TaggingRules, "Openers", "NotesSection", "0"}], True, False, Open, 
+      False, 
+      Blank[], True]], 
+   Cell[
+    StyleData["DetailsHeader"], 
+    TemplateBoxOptions -> {DisplayFunction -> ("Details and Options"& )}], 
+   Cell[
+    StyleData[
+    "ExampleSectionDelimiter", StyleDefinitions -> 
+     StyleData["PageDelimiter"]], CellMargins -> FEPrivate`If[
+      FEPrivate`Less[FEPrivate`$VersionNumber, 12.], -2, {{24, 14}, {12, 
+      12}}], CellOpen -> FEPrivate`If[
+      FEPrivate`Less[FEPrivate`$VersionNumber, 12.], False, True]], 
+   Cell[
+    StyleData["SeeAlsoItem", StyleDefinitions -> "InlineFormula"], FontFamily -> 
+    "Source Sans Pro"]}, Visible -> False, FrontEndVersion -> 
+  "12.1 for Microsoft Windows (64-bit) (March 18, 2020)", StyleDefinitions -> 
+  "Default.nb"],
+ExpressionUUID->"864c140d-207e-4f79-bd98-d81bca8e9fa9"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[579, 21, 373, 8, 62, "AnchorBarGrid",ExpressionUUID->"d088dfe9-2390-4cd2-bb69-5e0d42ae1a5c",
+ CellID->393041134],
+Cell[955, 31, 120, 1, 23, "ContextNameCell",ExpressionUUID->"d893169d-38fc-4558-8e4c-1363fea24fd0",
+ CellID->246327181],
+Cell[1078, 34, 104, 1, 53, "ObjectName",ExpressionUUID->"dc27d310-9d89-429e-8826-a391c8f0368a",
+ CellID->368807709],
+Cell[1185, 37, 326, 8, 32, "History",ExpressionUUID->"e83b3d4f-8e77-4e20-8475-c58c6878f5bd",
+ CellID->685502139]
+}
+]
+*)
+
+(* End of internal cache information *)
+

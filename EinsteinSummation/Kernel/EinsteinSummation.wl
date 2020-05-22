@@ -36,7 +36,7 @@ ConvertTensorIndex
 FreeIndexes
 FreeParentheses
 TensorOperate
-EvaluateEisteinSummation
+EvaluateEinsteinSummation
 
 
 Begin["`Private`"];
@@ -51,11 +51,42 @@ Begin["`Private`"];
 
 
 (* ::Input::Initialization::Plain:: *)
-Unprotect[$tensorSymb];
-ClearAll@$tensorSymb;
+(*Unprotect[$tensorSymb];*)
+(*ClearAll@$tensorSymb;*)
 $tensorSymb[s_Association]/;(s["Dimensions"]==0):=s["Value"];
 $tensorSymb[s_Association][query_]:=s[query];
-Protect[$tensorSymb];
+
+
+(* ::Text:: *)
+(*Render Function*)
+
+
+$tensorSymb/:MakeBoxes[obj:$tensorSymb[asso_Association],form:(StandardForm|TraditionalForm)]/;ContainsAll[Keys[asso],{"IndexPosition","Symbol"}]:=
+Module[{above,below,icon,pl=.4,
+cf=(If[#===Inherited,2*CurrentValue["FontXHeight"],#]&@CurrentValue["FontSize"]),
+indname=If[KeyExistsQ[asso,"IndexName"],asso["IndexName"],ConstantArray["\[Square]",Length@asso["IndexPosition"]]],
+parent=If[KeyExistsQ[asso,"SymmetryMarker"],asso["SymmetryMarker"],<|-1->{},1->{}|>]},
+(*Icon*)
+Module[{temp=ConstantArray["",{Length@asso["IndexPosition"]+1,2}],nindmax=10},
+KeyValueMap[Function[{key,val},With[{h=(3-key)/2},(temp[[#1,h]]=StringJoin[temp[[#1,h]],#2])&@@@val]],parent];
+temp=DeleteCases[Riffle[temp,MapThread[If[#1==1,{#2,""},{"",#2}]&,{asso["IndexPosition"],indname}]],{"",""}];
+temp=If[Length@temp>nindmax,temp[[;;nindmax-1]],temp];
+
+icon=Style[Pane[Row[{Row[{Style[asso["Symbol"],Bold,2*cf]},BaselinePosition->Center],Grid[Transpose@temp,Spacings->{0,{0,{.15 CurrentValue["FontCapHeight"]},0}},Frame->None,Alignment->Baseline,BaselinePosition->Center],If[Length@temp>nindmax,Row[{"\[CenterEllipsis]"},BaselinePosition->Center],Nothing]},Alignment->Center],{UpTo[Round[15*CurrentValue["FontMWidth"]]],5*CurrentValue["FontCapHeight"]},ImageSize->{UpTo[Round[12*CurrentValue["FontMWidth"]]],5*CurrentValue["FontCapHeight"]},ImageSizeAction->"ResizeToFit",Alignment->{Center,Top}],LinebreakAdjustments->{1000, 2, 12, 1, 1}]
+];
+
+above={{BoxForm`SummaryItem[{"Symbol: ",asso["Symbol"]}],SpanFromLeft},
+{BoxForm`SummaryItem[{"Dimensions: ",Length@asso["IndexPosition"]}],SpanFromLeft}};
+below={{BoxForm`SummaryItem[{"Index Name: ",Short[indname,pl]}],SpanFromLeft},
+{BoxForm`SummaryItem[{"Index Position: ",Short[asso["IndexPosition"],pl]}],SpanFromLeft},
+{BoxForm`SummaryItem[{"Symmetry Marker: ",Short[parent,pl]}],SpanFromLeft},
+If[KeyExistsQ[asso,"Value"],{BoxForm`SummaryItem[{"Value: ",""}],SpanFromLeft},Nothing],
+If[KeyExistsQ[asso,"Value"],{BoxForm`SummaryItem[{Short[asso["Value"],.8]}],SpanFromLeft},Nothing]
+};
+BoxForm`ArrangeSummaryBox[$tensorSymb,obj,icon,above,below,form,"Interpretable"->Automatic]];
+
+
+(*Protect[$tensorSymb];*)
 
 
 (* ::Subsubsection::Closed:: *)
@@ -367,7 +398,7 @@ RandomT$:=ToString@Unique["T$"]
 
 
 (* ::Input::Initialization::Plain:: *)
-EvaluateEisteinSummation[expr:Except[_String]]/;FreeQ[expr,$tensorSymb]:=expr
+EvaluateEinsteinSummation[expr:Except[_String]]/;FreeQ[expr,$tensorSymb]:=expr
 
 
 (* ::Subsubsection:: *)
@@ -375,7 +406,7 @@ EvaluateEisteinSummation[expr:Except[_String]]/;FreeQ[expr,$tensorSymb]:=expr
 
 
 (* ::Input::Initialization::Plain:: *)
-EvaluateEisteinSummation[expr_$tensorSymb]:=$tensorSymb@ConvertTensorIndex[expr[[1]]]
+EvaluateEinsteinSummation[expr_$tensorSymb]:=$tensorSymb@ConvertTensorIndex[expr[[1]]]
 
 
 (* ::Subsubsection:: *)
@@ -425,14 +456,14 @@ FreeParentheses[expr___]:=<|-1->{},1->{}|>
 
 
 (* ::Input::Initialization::Plain:: *)
-EvaluateEisteinSummation[expr_Plus]/;(!FreeQ[expr,$tensorSymb]):=
-Module[{cont=EvaluateEisteinSummation/@(List@@expr),cat,targetorder},
+EvaluateEinsteinSummation[expr_Plus]/;(!FreeQ[expr,$tensorSymb]):=
+Module[{cont=EvaluateEinsteinSummation/@(List@@expr),cat,targetorder},
 
 (*Check Validity*)
 (*Same index and index's height, no need for same position*)
-If[!(SameQ@@(Sort@*FreeIndexes/@cont)),Message[EvaluateEisteinSummation::indexmismatch,expr];Abort[]];
+If[!(SameQ@@(Sort@*FreeIndexes/@cont)),Message[EvaluateEinsteinSummation::indexmismatch,expr];Abort[]];
 (*No free parentheses*)
-If[!(And@@(({{},{}}===Values@FreeParentheses@#)&/@cont)),Message[EvaluateEisteinSummation::parentinsum,expr];Abort[]];
+If[!(And@@(({{},{}}===Values@FreeParentheses@#)&/@cont)),Message[EvaluateEinsteinSummation::parentinsum,expr];Abort[]];
 
 (*Categorize and Sum up*)
 cat=Flatten[#,1]&/@Reap[
@@ -506,7 +537,7 @@ TensorOperate[$tensorSymb[<|"Symbol"->"\[CapitalGamma]","IndexName"->If[indpos==
 ]&/@Range[TenB["Dimensions"]];
 
 (*Summation & change index order*)
-res1=TensorTranspose[#["Value"],Ordering[ReplacePart[indname,1->tempindex1]][[Ordering@Ordering@#["IndexName"]]]]&@EvaluateEisteinSummation[Total@Prepend[gammaterm,partialterm]][[1]];
+res1=TensorTranspose[#["Value"],Ordering[ReplacePart[indname,1->tempindex1]][[Ordering@Ordering@#["IndexName"]]]]&@EvaluateEinsteinSummation[Total@Prepend[gammaterm,partialterm]][[1]];
 
 (*contract/symmetrize etc.*)
 $tensorSymb@ConvertTensorIndex[<|"Symbol"->RandomT$,"IndexName"->indname,"Dimensions"->Total@s["Dimensions"],"IndexPosition"->Catenate@s["IndexPosition"],"SymmetryMarker"->(Join[#[[1]],{#[[1]]+1,#[[2]]}&/@#[[2]]]&/@Merge[s["SymmetryMarker"],Identity]),"Value"->If[TenA[[1,"IndexPosition",1]]==1,$gu.res1,res1]|>]
@@ -543,14 +574,14 @@ TensorOperate[TenA_,TenB_]:=(Echo[{TenA,TenB}];TenA*TenB)
 
 
 (* ::Input::Initialization::Plain:: *)
-EvaluateEisteinSummation[expr_CircleDot]/;(!FreeQ[expr,$tensorSymb]):=
+EvaluateEinsteinSummation[expr_CircleDot]/;(!FreeQ[expr,$tensorSymb]):=
 Module[{terms,mosterms,lasterms,termres},
 (*Check Validity*)
 FreeIndexes@expr;
 FreeParentheses@expr;
 
 (*Divide expression into terms which will calculate to a value matrix*)
-terms=MapAt[Most,Split[Append[EvaluateEisteinSummation/@(List@@expr),$tensorSymb[<|"Symbol"->"\[PartialD]"|>]],!(FreeQ[#1,$tensorSymb[s_Association/;(s["Symbol"]==="\[PartialD]"||s["Symbol"]=="\[Del]")]])&],-1];
+terms=MapAt[Most,Split[Append[EvaluateEinsteinSummation/@(List@@expr),$tensorSymb[<|"Symbol"->"\[PartialD]"|>]],!(FreeQ[#1,$tensorSymb[s_Association/;(s["Symbol"]==="\[PartialD]"||s["Symbol"]=="\[Del]")]])&],-1];
 If[Length@terms==1,Return[1]];
 (*those which can be calculated*)
 mosterms=Most@terms;
@@ -562,7 +593,7 @@ termres=
 If[Length[#]==1,#[[1]],
 Module[{expanded=Distribute[CircleDot@@#]},
 If[Head@expanded===Plus,
-EvaluateEisteinSummation[
+EvaluateEinsteinSummation[
 $tensorSymb@Fold[TensorOperate[#2,#1]&,
 Reverse@Internal`InheritedBlock[{CircleDot},SetAttributes[CircleDot,Flat];#]
 ]&/@expanded],
@@ -576,12 +607,12 @@ If[Length@lasterms==0,#,CircleDot@@Prepend[lasterms,#]]&@Fold[TensorOperate[#2,#
 ]
 
 
-(* ::Subsection::Closed:: *)
+(* ::Subsection:: *)
 (*Complete Evaluation From String*)
 
 
 (* ::Input::Initialization::Plain:: *)
-EvaluateEisteinSummation[s_String]/;True:=EvaluateEisteinSummation@ParseTensorExpression@s
+EvaluateEinsteinSummation[s_String]/;True:=EvaluateEinsteinSummation@ParseTensorExpression@s
 
 
 (* ::Subsection:: *)

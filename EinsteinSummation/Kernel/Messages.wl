@@ -25,5 +25,5 @@ FreeIndexes::invindex="Contraction of `1` is invalid. No index is allowed to app
 FreeParentheses::invparent="Mismatched parentheses in `1`";
 
 
-EvaluateEisteinSummation::indexmismatch="Cannot add up expression `1` whose components has different free indexes and/or free indexes' positions.";
-EvaluateEisteinSummation::parentinsum="Free parentheses appeared in summation `1`, which is not allowed.\nIf you insists, please expand the terms and retry.";
+EvaluateEinsteinSummation::indexmismatch="Cannot add up expression `1` whose components has different free indexes and/or free indexes' positions.";
+EvaluateEinsteinSummation::parentinsum="Free parentheses appeared in summation `1`, which is not allowed.\nIf you insists, please expand the terms and retry.";

@@ -55,4 +55,4 @@ TensorOperate::usage="TensorOperate[TensorA,TensorB] do TensorC = TensorA Tensor
 
 
 (* ::Code::Initialization::Plain:: *)
-EvaluateEisteinSummation::usage="EvaluateEisteinSummation[expr_] Evaluate the tensor expression inside using Einstein summation rules.";
+EvaluateEinsteinSummation::usage="EvaluateEinsteinSummation[expr_] Evaluate the tensor expression inside using Einstein summation rules.";
