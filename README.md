@@ -57,7 +57,7 @@ SetVars[{x,y}];
 $constants={a,b};
 SetMetric[DiagonalMatrix@{a,b}]
 AddTensorToDataset[<|"Symbol"->"A","IndexPosition"->{-1},"Value"->{p[x,y],q[x,y]}|>]
-EvaluateEisteinSummation["\*SuperscriptBox[\(g\), \(pq\)]\*SubscriptBox[\(\[Del]\), \([p\)]\*SubscriptBox[\(\[Del]\), \(\(q\)\(]\)\)]\*SuperscriptBox[\(A\), \(r\)]"]["Value"]//Normal
+EvaluateEinsteinSummation["\*SuperscriptBox[\(g\), \(pq\)]\*SubscriptBox[\(\[Del]\), \([p\)]\*SubscriptBox[\(\[Del]\), \(\(q\)\(]\)\)]\*SuperscriptBox[\(A\), \(r\)]"]["Value"]//Normal
 ```
 
 If you get {0,0} then the package is (probably) working right!
@@ -117,7 +117,7 @@ Here we encountered our first vector(tensor). To input it, you have two choices:
 **Step 4.** Type in the equation same as the step above and evaluate!!!
 
    ```mathematica
-   res=EvaluateEisteinSummation["\!\(\*SubscriptBox[\(\[Del]\), \((\[Mu]\)]\)\!\(\*SubscriptBox[\(K\), \(\(\[Nu]\)\()\)\)]\)"]
+   res=EvaluateEinsteinSummation["\!\(\*SubscriptBox[\(\[Del]\), \((\[Mu]\)]\)\!\(\*SubscriptBox[\(K\), \(\(\[Nu]\)\()\)\)]\)"]
    ```
 
    Unfortunately, you cannot use TeX Strings here due to some internal bugs of Mathematica.
