@@ -40,7 +40,7 @@ To use this package, **Mathematica 11.3** or later are required. (There is a sli
 The simplest way to configure your package is executing the following code:
 
 ```mathematica
-PacletInstall["https://github.com/wjxway/EasyEinsteinSummation/releases/download/0.2.0/EinsteinSummation-0.2.0.paclet"]
+PacletInstall["https://github.com/wjxway/EasyEinsteinSummation/releases/download/0.3.0/EinsteinSummation-0.3.0.paclet"]
 ```
 
 Or you can download the lastest release of EinsteinSummation package on the [Releases page](https://github.com/wjxway/EasyEinsteinSummation/releases), and install with:
