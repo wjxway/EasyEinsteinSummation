@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     13646,        289]
-NotebookOptionsPosition[      1207,         39]
-NotebookOutlinePosition[     13408,        284]
-CellTagsIndexPosition[     13365,        281]
+NotebookDataLength[     13976,        297]
+NotebookOptionsPosition[      1400,         43]
+NotebookOutlinePosition[     13628,        290]
+CellTagsIndexPosition[     13585,        287]
 WindowTitle->Einstein Summation
 WindowFrame->Normal*)
 
@@ -34,7 +34,11 @@ Cell["Einstein Summation", "Title",
  CellID->198582721,ExpressionUUID->"7854b60e-f623-4ba8-9639-69a826ca9d33"],
 
 Cell[" ", "FooterCell",
- CellID->722848904,ExpressionUUID->"53ea5676-3ab5-4c5e-b496-958df2c9f47b"]
+ CellID->722848904,ExpressionUUID->"53ea5676-3ab5-4c5e-b496-958df2c9f47b"],
+
+Cell["Please refer to Wikipedia for now!", "Text",
+ CellChangeTimes->{{3.799428857369909*^9, 3.799428869108305*^9}},
+ CellID->25688841,ExpressionUUID->"19255373-e416-412a-a033-bb4665e8ad6d"]
 }, Open  ]]
 },
 Saveable->False,
@@ -52,7 +56,8 @@ TaggingRules->{
     "EinsteinSummation/ReferencePages/Tutorials/EinsteinSummation", "summary" -> 
     "", "keywords" -> {}, "WorkflowDockedCell" -> ""}, "LinkTrails" -> "", 
   "SearchTextTranslated" -> ""},
-FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (March 18, 2020)",
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (2020\:5e744\:670830\
+\:65e5)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[
@@ -268,7 +273,8 @@ StyleDefinitions->Notebook[{
         MouseAppearanceTag["LinkHand"]]& )}], 
    Cell[
     StyleData["TutorialTableLink"], FontSize -> 15]}, Visible -> False, 
-  FrontEndVersion -> "12.1 for Microsoft Windows (64-bit) (March 18, 2020)", 
+  FrontEndVersion -> 
+  "12.1 for Microsoft Windows (64-bit) (2020\:5e744\:670830\:65e5)", 
   StyleDefinitions -> "Default.nb"],
 ExpressionUUID->"562e8162-5351-4f18-8676-be69f0f313df"
 ]
@@ -289,11 +295,11 @@ Cell[CellGroupData[{
 Cell[980, 32, 110, 1, 63, "Title",ExpressionUUID->"7854b60e-f623-4ba8-9639-69a826ca9d33",
  CellID->198582721],
 Cell[1093, 35, 98, 1, 40, "FooterCell",ExpressionUUID->"53ea5676-3ab5-4c5e-b496-958df2c9f47b",
- CellID->722848904]
+ CellID->722848904],
+Cell[1194, 38, 190, 2, 36, "Text",ExpressionUUID->"19255373-e416-412a-a033-bb4665e8ad6d",
+ CellID->25688841]
 }, Open  ]]
 }
 ]
 *)
-
-(* End of internal cache information *)
 

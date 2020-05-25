@@ -89,12 +89,12 @@ BoxForm`ArrangeSummaryBox[$tensorSymb,obj,icon,above,below,form,"Interpretable"-
 (*Protect[$tensorSymb];*)
 
 
-(* ::Subsubsection::Closed:: *)
+(* ::Subsubsection:: *)
 (*Parse String*)
 
 
 (* ::Subsubsubsection::Plain:: *)
-(*Convert T EX string into parse-able form*)
+(*Convert TEX string into parse-able form*)
 
 
 (* ::Input::Initialization::Plain:: *)
@@ -229,7 +229,7 @@ myGrad[symb_]:=myGrad[symb,$vars]
 
 
 (* ::Input::Initialization::Plain:: *)
-$TensorDefinitions=Dataset[{<|"Symbol"->"g","Dimension"->2,"IndexPosition"->{-1,-1},"Value"->DiagonalMatrix@{1,1,1,1}|>}];
+$TensorDefinitions=Dataset[{<|"Symbol"->"g","Dimensions"->2,"IndexPosition"->{-1,-1},"Value"->DiagonalMatrix@{1,1,1,1}|>}];
 
 
 (* ::Input::Initialization::Plain:: *)
@@ -239,10 +239,10 @@ If[(Length[Dimensions@ten["Value"]]<Length@ten["IndexPosition"])||(!(Equal@@(Dim
 $TensorDefinitions=DeleteCases[$TensorDefinitions,_?(#Symbol===ten["Symbol"]&&Length[#IndexPosition]===Length[ten["IndexPosition"]]&)];AppendTo[$TensorDefinitions,Insert[ten[[{"Symbol","IndexPosition","Value"}]],"Dimensions"->Length@ten["IndexPosition"],2]];)
 
 
-AddTensorToDataset[ten_Association,val_List]:=Block[{ten1=ten},AddTensorToDataset[ten1["Value"]=val;ten1]];
+AddTensorToDataset[ten_Association,val_?ArrayQ]:=Block[{ten1=ten},AddTensorToDataset[ten1["Value"]=val;ten1]];
 
 
-AddTensorToDataset[ten_String,val_List]:=AddTensorToDataset[ParseTensor[ten][[1]],val];
+AddTensorToDataset[ten_String,val_?ArrayQ]:=AddTensorToDataset[ParseTensor[ten][[1]],val];
 
 
 AddTensorToDataset[ten_$tensorSymb,others___]:=AddTensorToDataset[ten[[1]],others];
@@ -273,7 +273,7 @@ $constants={};
 
 (* ::Input::Initialization::Plain:: *)
 SetVars[vars_]:=If[Length@vars!=Length@$vars,
-$TensorDefinitions=Dataset[{<|"Symbol"->"g","Dimension"->2,"IndexPosition"->{-1,-1},"Value"->DiagonalMatrix@ConstantArray[1,Length@vars]|>}];
+$TensorDefinitions=Dataset[{<|"Symbol"->"g","Dimensions"->2,"IndexPosition"->{-1,-1},"Value"->DiagonalMatrix@ConstantArray[1,Length@vars]|>}];
 $vars=vars;
 SetMetric[DiagonalMatrix@ConstantArray[1,Length@vars]],
 $vars=vars];
@@ -319,12 +319,12 @@ AdjustIndex[mat_,pos_List]:=Fold[myTensorTranspose[If[#2[[2]]==1,$gu,$gd].myTens
 ConvertTensorIndex[s_Association]:=Module[{stored=Normal[First@MinimalBy[Select[$TensorDefinitions,#Symbol==s["Symbol"]&&#Dimensions==s["Dimensions"]&],Abs[#IndexPosition-s["IndexPosition"]]&]],temps=s,temp,diff},
 If[Head[stored]=!=Association,Message[ConvertTensorIndex::nstored,s["Symbol"]];Abort[]];
 
-(*Raise and reduce index*)
-diff=(stored["IndexPosition"]-s["IndexPosition"])/2;
+(*Raise and drop index*)
+diff=(s["IndexPosition"]-stored["IndexPosition"])/2;
 temp=stored["Value"];
 temp=AdjustIndex[temp,Thread[{Range@Length@#,#}]&@diff];
 AppendTo[temps,"Value"->temp];
-DirectAddTensorToDataset[temps];
+(*DirectAddTensorToDataset[temps];*)
 ConvertTensorIndex[temps]
 ]
 
@@ -621,3 +621,11 @@ EvaluateEinsteinSummation[s_String]/;True:=EvaluateEinsteinSummation@ParseTensor
 
 End[];
 EndPackage[];
+
+
+Print@Column[{Button["Einstein Summation Package Guide \[RightSkeleton]", Inherited, Appearance -> Automatic,BaseStyle -> "Link", 
+   ButtonData -> "paclet:EinsteinSummation/ReferencePages/Guides/TensorExpressionswithEinsteinSummation", Evaluator -> Automatic, 
+   Method -> "Preemptive"], Button["Einstein Summation Tutorial \[RightSkeleton]", Inherited, Appearance -> Automatic, 
+   BaseStyle -> "Link", ButtonData -> 
+    "paclet:EinsteinSummation/ReferencePages/Tutorials/EinsteinSummation", Evaluator -> Automatic, 
+   Method -> "Preemptive"]}, ItemSize -> {Automatic, Automatic}, Spacings -> {Automatic, 0}]

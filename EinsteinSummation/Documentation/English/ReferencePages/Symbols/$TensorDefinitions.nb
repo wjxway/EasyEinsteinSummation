@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    257117,       5085]
-NotebookOptionsPosition[    242661,       4776]
-NotebookOutlinePosition[    251160,       4971]
-CellTagsIndexPosition[    251117,       4968]
+NotebookDataLength[    258731,       5129]
+NotebookOptionsPosition[    244122,       4816]
+NotebookOutlinePosition[    252627,       5011]
+CellTagsIndexPosition[    252584,       5008]
 WindowTitle->$TensorDefinitions
 WindowFrame->Normal*)
 
@@ -483,11 +483,43 @@ Cell[BoxData[
 Cell["Load the EinsteinSummation package:", "ExampleText",
  CellID->853439784,ExpressionUUID->"47c3ebbe-8960-4f8e-8f8d-676db6a643c7"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"Get", "[", "\"\<EinsteinSummation`\>\"", "]"}]], "Input",
  InitializationCell->False,
  CellLabel->"In[1]:=",
  CellID->830201710,ExpressionUUID->"e9e96a10-79f7-4fa9-aa55-64e2e95b507e"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     ButtonBox["\<\"Einstein Summation Package Guide \[RightSkeleton]\"\>",
+      Appearance->Automatic,
+      BaseStyle->"Link",
+      ButtonData->
+       "paclet:EinsteinSummation/ReferencePages/Guides/\
+TensorExpressionswithEinsteinSummation",
+      Evaluator->Automatic,
+      Method->"Preemptive"]},
+    {
+     ButtonBox["\<\"Einstein Summation Tutorial \[RightSkeleton]\"\>",
+      Appearance->Automatic,
+      BaseStyle->"Link",
+      ButtonData->
+       "paclet:EinsteinSummation/ReferencePages/Tutorials/EinsteinSummation",
+      Evaluator->Automatic,
+      Method->"Preemptive"]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {{Automatic}}, "Rows" -> {{0}}}],
+  "Column"]], "Print",
+ CellContext->"Notebook$$330$427804`",
+ CellLabel->"\:6b63\:5728\:8ba1\:7b97In[1]:=",
+ CellID->345405867,ExpressionUUID->"f4893fff-0526-4694-9fd9-409ed1fa2f37"]
+}, Open  ]],
 
 Cell[TextData[{
  "Initially ",
@@ -549,7 +581,7 @@ Cell[BoxData[
          TypeSystem`Vector[
           TypeSystem`Atom[Integer], TypeSystem`AnyLength], 
          TypeSystem`AnyType}], 3], "Meta" -> 
-     Association["ID" -> 39711469267321], "RowTarget" -> 20, "ColumnTarget" -> 1\
+     Association["ID" -> 88790060843623], "RowTarget" -> 20, "ColumnTarget" -> 1\
 0, "Shape" -> TypeSystem`PackageScope`HeaderShape[
        Association[{All, "Symbol"} -> 1, {All, "Dimensions"} -> 
         1, {All, "IndexPosition"} -> 1, {All, "Value"} -> 1], 
@@ -1244,13 +1276,13 @@ lastPathIsLeafHeader, TypeSystem`NestedGrid`PackagePrivate`allHidden$ =
         TypeSystem`NestedGrid`PackagePrivate`$topBar$$, "BottomBar" -> 
         TypeSystem`NestedGrid`PackagePrivate`releaseLocalHold[
          TypeSystem`NestedGrid`PackagePrivate`$bottomBar$$]], StandardForm],
-      ImageSizeCache->{541., {76.5, 81.5}},
+      ImageSizeCache->{554., {77.42857142857143, 82.57142857142857}},
       TrackedSymbols:>{
        TypeSystem`NestedGrid`PackagePrivate`$state$$, 
         TypeSystem`NestedGrid`PackagePrivate`$grid$$}], 
      TypeSystem`NestedGrid`PackagePrivate`mouseAnnotation$$ = 
      MouseAnnotation[],
-     ImageSizeCache->{541., {76.5, 81.5}}],
+     ImageSizeCache->{554., {77.42857142857143, 82.57142857142857}}],
     BaseStyle->{LineBreakWithin -> False},
     DynamicModuleValues:>{},
     Initialization:>
@@ -1266,7 +1298,7 @@ lastPathIsLeafHeader, TypeSystem`NestedGrid`PackagePrivate`allHidden$ =
   Selectable->False]], "Output",
  CellContext->"Notebook$$982$142894`",
  CellLabel->"Out[2]=",
- CellID->322540271,ExpressionUUID->"71c96c0e-4456-4f5f-8b02-7347be26334d"]
+ CellID->160626494,ExpressionUUID->"753943e5-c5d3-47a2-a6a4-fa0884cfe22b"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -1310,8 +1342,9 @@ Cell[BoxData[
                  Evaluator -> Automatic, Method -> "Preemptive"], 
                Alignment -> {Center, Center}, ImageSize -> 
                Dynamic[{
-                 Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                  AbsoluteCurrentValue[Magnification]}]], 
+                 Automatic, 
+                  3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                   Magnification])}]], 
               StyleBox[
                PaneBox[
                 TemplateBox[{
@@ -1380,8 +1413,9 @@ Cell[BoxData[
                 None, Evaluator -> Automatic, Method -> "Preemptive"], 
                Alignment -> {Center, Center}, ImageSize -> 
                Dynamic[{
-                 Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                  AbsoluteCurrentValue[Magnification]}]], 
+                 Automatic, 
+                  3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                   Magnification])}]], 
               StyleBox[
                PaneBox[
                 TemplateBox[{
@@ -1484,14 +1518,14 @@ Cell[BoxData[
    RowBox[{"{", 
     RowBox[{"at", ",", "ax", ",", "ay", ",", "az"}], "}"}]}], "]"}]], "Input",
  InitializationCell->False,
- CellLabel->"In[4]:=",
+ CellLabel->"In[3]:=",
  CellID->160966541,ExpressionUUID->"434b9127-0ba0-45d0-be24-2328c0f1571d"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData["$TensorDefinitions"], "Input",
  InitializationCell->False,
- CellLabel->"In[5]:=",
+ CellLabel->"In[4]:=",
  CellID->63916258,ExpressionUUID->"4c11aa31-912c-4190-8f02-6b92ed15de7f"],
 
 Cell[BoxData[
@@ -1537,7 +1571,7 @@ $CellContext`az}]}, "InitialShape" -> TypeSystem`PackageScope`HeaderShape[
          TypeSystem`Vector[
           TypeSystem`Atom[Integer], TypeSystem`AnyLength], 
          TypeSystem`AnyType}], 4], "Meta" -> 
-     Association["ID" -> 39720059201925], "RowTarget" -> 20, "ColumnTarget" -> 
+     Association["ID" -> 88798650778220], "RowTarget" -> 20, "ColumnTarget" -> 
      10, "Shape" -> TypeSystem`PackageScope`HeaderShape[
        Association[{All, "Symbol"} -> 1, {All, "Dimensions"} -> 
         1, {All, "IndexPosition"} -> 1, {All, "Value"} -> 1], 
@@ -2311,13 +2345,13 @@ lastPathIsLeafHeader, TypeSystem`NestedGrid`PackagePrivate`allHidden$ =
         TypeSystem`NestedGrid`PackagePrivate`$topBar$$, "BottomBar" -> 
         TypeSystem`NestedGrid`PackagePrivate`releaseLocalHold[
          TypeSystem`NestedGrid`PackagePrivate`$bottomBar$$]], StandardForm],
-      ImageSizeCache->{541., {88.5, 93.5}},
+      ImageSizeCache->{554., {89.42857142857143, 94.57142857142857}},
       TrackedSymbols:>{
        TypeSystem`NestedGrid`PackagePrivate`$state$$, 
         TypeSystem`NestedGrid`PackagePrivate`$grid$$}], 
      TypeSystem`NestedGrid`PackagePrivate`mouseAnnotation$$ = 
      MouseAnnotation[],
-     ImageSizeCache->{541., {88.5, 93.5}}],
+     ImageSizeCache->{554., {89.42857142857143, 94.57142857142857}}],
     BaseStyle->{LineBreakWithin -> False},
     DynamicModuleValues:>{},
     Initialization:>
@@ -2332,8 +2366,8 @@ lastPathIsLeafHeader, TypeSystem`NestedGrid`PackagePrivate`allHidden$ =
   SelectWithContents->True,
   Selectable->False]], "Output",
  CellContext->"Notebook$$982$142894`",
- CellLabel->"Out[5]=",
- CellID->58086180,ExpressionUUID->"f13f3cd2-1bd3-4080-bac8-b5618d894242"]
+ CellLabel->"Out[4]=",
+ CellID->283364139,ExpressionUUID->"fc7495f5-db90-4d9a-84c2-55f92355b6ac"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -2371,8 +2405,9 @@ Cell[BoxData[
                  Evaluator -> Automatic, Method -> "Preemptive"], 
                Alignment -> {Center, Center}, ImageSize -> 
                Dynamic[{
-                 Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                  AbsoluteCurrentValue[Magnification]}]], 
+                 Automatic, 
+                  3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                   Magnification])}]], 
               StyleBox[
                PaneBox[
                 TemplateBox[{
@@ -2443,8 +2478,9 @@ Cell[BoxData[
                 None, Evaluator -> Automatic, Method -> "Preemptive"], 
                Alignment -> {Center, Center}, ImageSize -> 
                Dynamic[{
-                 Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                  AbsoluteCurrentValue[Magnification]}]], 
+                 Automatic, 
+                  3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                   Magnification])}]], 
               StyleBox[
                PaneBox[
                 TemplateBox[{
@@ -2562,8 +2598,9 @@ Cell[BoxData[
                  Evaluator -> Automatic, Method -> "Preemptive"], 
                Alignment -> {Center, Center}, ImageSize -> 
                Dynamic[{
-                 Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                  AbsoluteCurrentValue[Magnification]}]], 
+                 Automatic, 
+                  3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                   Magnification])}]], 
               StyleBox[
                PaneBox[
                 TemplateBox[{
@@ -2632,8 +2669,9 @@ Cell[BoxData[
                 None, Evaluator -> Automatic, Method -> "Preemptive"], 
                Alignment -> {Center, Center}, ImageSize -> 
                Dynamic[{
-                 Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                  AbsoluteCurrentValue[Magnification]}]], 
+                 Automatic, 
+                  3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                   Magnification])}]], 
               StyleBox[
                PaneBox[
                 TemplateBox[{
@@ -2732,7 +2770,7 @@ Cell[BoxData[
     SelectWithContents->True,
     Selectable->False]}], "]"}]], "Input",
  InitializationCell->False,
- CellLabel->"In[8]:=",
+ CellLabel->"In[6]:=",
  CellID->579168935,ExpressionUUID->"70e5962e-9fe1-4145-a883-55e3e4a0988f"],
 
 Cell[BoxData[
@@ -2759,8 +2797,8 @@ Cell[BoxData[
      RowBox[{"{", 
       RowBox[{"t", ",", "x", ",", "y"}], "}"}]}]}], "]"}]}]], "Output",
  CellContext->"Notebook$$982$142894`",
- CellLabel->"Out[8]=",
- CellID->655016440,ExpressionUUID->"51a1c157-39b7-485b-9c1a-4ee8e9a2ad1a"]
+ CellLabel->"Out[6]=",
+ CellID->41483167,ExpressionUUID->"5b6f9de4-ba2c-4b9d-a5da-2293bce9e86d"]
 }, Open  ]]
 }, Dynamic[CurrentValue[
  EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}]]]],
@@ -2822,8 +2860,9 @@ Cell[BoxData[{
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                StyleBox[
                 PaneBox[
                  TemplateBox[{
@@ -2892,8 +2931,9 @@ Cell[BoxData[{
                  None, Evaluator -> Automatic, Method -> "Preemptive"], 
                 Alignment -> {Center, Center}, ImageSize -> 
                 Dynamic[{
-                  Automatic, 3.5 CurrentValue["FontCapHeight"]/
-                   AbsoluteCurrentValue[Magnification]}]], 
+                  Automatic, 
+                   3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
                StyleBox[
                 PaneBox[
                  TemplateBox[{
@@ -2996,7 +3036,7 @@ Cell[BoxData[{
      RowBox[{"at", ",", "ax", ",", "ay", ",", "az"}], "}"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", "$TensorDefinitions"}], "Input",
  InitializationCell->False,
- CellLabel->"In[9]:=",
+ CellLabel->"In[7]:=",
  CellID->203697298,ExpressionUUID->"1add13dd-43da-4ed2-ac49-16a29568e767"],
 
 Cell[BoxData[
@@ -3042,7 +3082,7 @@ $CellContext`az}]}, "InitialShape" -> TypeSystem`PackageScope`HeaderShape[
          TypeSystem`Vector[
           TypeSystem`Atom[Integer], TypeSystem`AnyLength], 
          TypeSystem`AnyType}], 4], "Meta" -> 
-     Association["ID" -> 39750123973035], "RowTarget" -> 20, "ColumnTarget" -> 
+     Association["ID" -> 88833010516618], "RowTarget" -> 20, "ColumnTarget" -> 
      10, "Shape" -> TypeSystem`PackageScope`HeaderShape[
        Association[{All, "Symbol"} -> 1, {All, "Dimensions"} -> 
         1, {All, "IndexPosition"} -> 1, {All, "Value"} -> 1], 
@@ -3816,13 +3856,13 @@ lastPathIsLeafHeader, TypeSystem`NestedGrid`PackagePrivate`allHidden$ =
         TypeSystem`NestedGrid`PackagePrivate`$topBar$$, "BottomBar" -> 
         TypeSystem`NestedGrid`PackagePrivate`releaseLocalHold[
          TypeSystem`NestedGrid`PackagePrivate`$bottomBar$$]], StandardForm],
-      ImageSizeCache->{541., {88.5, 93.5}},
+      ImageSizeCache->{554., {89.42857142857143, 94.57142857142857}},
       TrackedSymbols:>{
        TypeSystem`NestedGrid`PackagePrivate`$state$$, 
         TypeSystem`NestedGrid`PackagePrivate`$grid$$}], 
      TypeSystem`NestedGrid`PackagePrivate`mouseAnnotation$$ = 
      MouseAnnotation[],
-     ImageSizeCache->{541., {88.5, 93.5}}],
+     ImageSizeCache->{554., {89.42857142857143, 94.57142857142857}}],
     BaseStyle->{LineBreakWithin -> False},
     DynamicModuleValues:>{},
     Initialization:>
@@ -3837,8 +3877,8 @@ lastPathIsLeafHeader, TypeSystem`NestedGrid`PackagePrivate`allHidden$ =
   SelectWithContents->True,
   Selectable->False]], "Output",
  CellContext->"Notebook$$982$142894`",
- CellLabel->"Out[10]=",
- CellID->147671871,ExpressionUUID->"c6e516ff-c6ba-450c-ae54-bf3dd2433f9a"]
+ CellLabel->"Out[8]=",
+ CellID->315190734,ExpressionUUID->"f1f93d17-2bb5-4d0f-a02a-ae3872d8a795"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3850,7 +3890,7 @@ Cell[BoxData[{
     RowBox[{"x", ",", "y"}], "}"}], "]"}], 
   ";"}], "\[IndentingNewLine]", "$TensorDefinitions"}], "Input",
  InitializationCell->False,
- CellLabel->"In[12]:=",
+ CellLabel->"In[9]:=",
  CellID->685446895,ExpressionUUID->"148df361-2c05-4e86-98a4-adf21b5ecc46"],
 
 Cell[BoxData[
@@ -3891,7 +3931,7 @@ Cell[BoxData[
           TypeSystem`Atom[Integer], TypeSystem`AnyLength], 
          TypeSystem`Vector[
           TypeSystem`Vector[TypeSystem`AnyType, 2], 2]}], 3], "Meta" -> 
-     Association["ID" -> 39780188744111], "RowTarget" -> 20, "ColumnTarget" -> 
+     Association["ID" -> 88863075287692], "RowTarget" -> 20, "ColumnTarget" -> 
      10, "Shape" -> TypeSystem`PackageScope`HeaderShape[
        Association[{All, "Symbol"} -> 1, {All, "Dimensions"} -> 
         1, {All, "IndexPosition"} -> 1, {All, "Value"} -> 2], 
@@ -4635,13 +4675,13 @@ lastPathIsLeafHeader, TypeSystem`NestedGrid`PackagePrivate`allHidden$ =
         TypeSystem`NestedGrid`PackagePrivate`$topBar$$, "BottomBar" -> 
         TypeSystem`NestedGrid`PackagePrivate`releaseLocalHold[
          TypeSystem`NestedGrid`PackagePrivate`$bottomBar$$]], StandardForm],
-      ImageSizeCache->{388., {100.5, 105.5}},
+      ImageSizeCache->{397., {100.42857142857143`, 105.57142857142857`}},
       TrackedSymbols:>{
        TypeSystem`NestedGrid`PackagePrivate`$state$$, 
         TypeSystem`NestedGrid`PackagePrivate`$grid$$}], 
      TypeSystem`NestedGrid`PackagePrivate`mouseAnnotation$$ = 
      MouseAnnotation[],
-     ImageSizeCache->{388., {100.5, 105.5}}],
+     ImageSizeCache->{397., {100.42857142857143`, 105.57142857142857`}}],
     BaseStyle->{LineBreakWithin -> False},
     DynamicModuleValues:>{},
     Initialization:>
@@ -4656,8 +4696,8 @@ lastPathIsLeafHeader, TypeSystem`NestedGrid`PackagePrivate`allHidden$ =
   SelectWithContents->True,
   Selectable->False]], "Output",
  CellContext->"Notebook$$982$142894`",
- CellLabel->"Out[13]=",
- CellID->219348784,ExpressionUUID->"3d157cfc-3bd4-4245-9a26-a85d1ee70d2d"]
+ CellLabel->"Out[10]=",
+ CellID->35466415,ExpressionUUID->"598de961-817e-4446-9e88-25fdededdc3b"]
 }, Open  ]]
 }, Dynamic[CurrentValue[
  EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "1"}]]]],
@@ -4775,8 +4815,8 @@ Cell[TextData[{
  CellID->92345869,ExpressionUUID->"0c6ff588-e914-40fa-a5df-0967d4cf4cc9"]
 },
 Saveable->False,
-WindowSize->{582, 418},
-WindowMargins->{{183.5, Automatic}, {Automatic, 39.5}},
+WindowSize->{586.7142857142857, 654.},
+WindowMargins->{{Automatic, 287.1428571428571}, {Automatic, 42}},
 WindowTitle->"$TensorDefinitions",
 Visible->True,
 TaggingRules->{
@@ -4794,7 +4834,8 @@ tensors.", "keywords" -> {}, "WorkflowDockedCell" -> ""}, "LinkTrails" -> "",
    "NotesSection" -> {"0" -> False}, 
     "ExampleSection" -> {"0" -> True, "1" -> Closed}, 
     "PrimaryExamplesSection" -> {"0" -> True}}},
-FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (March 18, 2020)",
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (2020\:5e744\:670830\
+\:65e5)",
 StyleDefinitions->Notebook[{
    Cell[
     StyleData[
@@ -4953,11 +4994,10 @@ StyleDefinitions->Notebook[{
       FEPrivate`Less[FEPrivate`$VersionNumber, 12.], False, True]], 
    Cell[
     StyleData["SeeAlsoItem", StyleDefinitions -> "InlineFormula"], FontFamily -> 
-    "Source Sans Pro"]}, Visible -> False, 
-  TaggingRules -> {"NewStyles" -> False}, FrontEndVersion -> 
-  "12.1 for Microsoft Windows (64-bit) (March 18, 2020)", StyleDefinitions -> 
-  "Default.nb"],
-ExpressionUUID->"13c50073-bf0d-4abc-b9f1-98b0cc2611b1"
+    "Source Sans Pro"]}, Visible -> False, FrontEndVersion -> 
+  "12.1 for Microsoft Windows (64-bit) (2020\:5e744\:670830\:65e5)", 
+  StyleDefinitions -> "Default.nb"],
+ExpressionUUID->"23b4485a-19ee-4be6-834f-4afd2e0b9c23"
 ]
 (* End of Notebook Content *)
 
@@ -4977,7 +5017,7 @@ Cell[3659, 102, 120, 1, 23, "ContextNameCell",ExpressionUUID->"cbdbcd7b-d543-45f
 Cell[CellGroupData[{
 Cell[3804, 107, 115, 1, 53, "ObjectName",ExpressionUUID->"2dc21f01-63ab-40fd-98ad-d3230e29e342",
  CellID->192822185],
-Cell[3922, 110, 936, 23, 109, "Usage",ExpressionUUID->"c143f8ef-e96c-4aed-8836-ef37849e104d",
+Cell[3922, 110, 936, 23, 115, "Usage",ExpressionUUID->"c143f8ef-e96c-4aed-8836-ef37849e104d",
  CellID->21187162]
 }, Open  ]],
 Cell[CellGroupData[{
@@ -4998,98 +5038,100 @@ Cell[CellGroupData[{
 Cell[19908, 454, 454, 11, 37, "PrimaryExamplesSection",ExpressionUUID->"14173305-d2ed-44d5-8ff9-d2dbd4a9d044",
  CellID->398995419],
 Cell[CellGroupData[{
-Cell[20387, 469, 436, 11, 31, "ExampleSection",ExpressionUUID->"0f54898d-4993-4511-b340-d7afda77ef1c",
+Cell[20387, 469, 436, 11, 32, "ExampleSection",ExpressionUUID->"0f54898d-4993-4511-b340-d7afda77ef1c",
  CellID->180588726],
 Cell[20826, 482, 133, 1, 38, "ExampleText",ExpressionUUID->"47c3ebbe-8960-4f8e-8f8d-676db6a643c7",
  CellID->853439784],
-Cell[20962, 485, 207, 4, 26, "Input",ExpressionUUID->"e9e96a10-79f7-4fa9-aa55-64e2e95b507e",
+Cell[CellGroupData[{
+Cell[20984, 487, 207, 4, 26, "Input",ExpressionUUID->"e9e96a10-79f7-4fa9-aa55-64e2e95b507e",
  InitializationCell->False,
  CellID->830201710],
-Cell[21172, 491, 438, 11, 38, "ExampleText",ExpressionUUID->"b5e65f6e-5f1b-4bc9-a3c5-c0d571f11a10",
+Cell[21194, 493, 1037, 27, 52, "Print",ExpressionUUID->"f4893fff-0526-4694-9fd9-409ed1fa2f37",
+ CellID->345405867]
+}, Open  ]],
+Cell[22246, 523, 438, 11, 40, "ExampleText",ExpressionUUID->"b5e65f6e-5f1b-4bc9-a3c5-c0d571f11a10",
  CellID->7692416],
 Cell[CellGroupData[{
-Cell[21635, 506, 169, 3, 26, "Input",ExpressionUUID->"61d65b1c-6a4f-4b25-9aac-af86fd7a9e26",
+Cell[22709, 538, 169, 3, 26, "Input",ExpressionUUID->"61d65b1c-6a4f-4b25-9aac-af86fd7a9e26",
  InitializationCell->False,
  CellID->19711833],
-Cell[21807, 511, 41374, 757, 181, "Output",ExpressionUUID->"71c96c0e-4456-4f5f-8b02-7347be26334d",
- CellID->322540271]
+Cell[22881, 543, 41426, 757, 183, "Output",ExpressionUUID->"753943e5-c5d3-47a2-a6a4-fa0884cfe22b",
+ CellID->160626494]
 }, Open  ]],
-Cell[63196, 1271, 663, 19, 38, "ExampleText",ExpressionUUID->"929a9163-859f-4336-8be6-0c8e078616b9",
+Cell[64322, 1303, 663, 19, 40, "ExampleText",ExpressionUUID->"929a9163-859f-4336-8be6-0c8e078616b9",
  CellID->10738918],
-Cell[63862, 1292, 9392, 195, 95, "Input",ExpressionUUID->"434b9127-0ba0-45d0-be24-2328c0f1571d",
+Cell[64988, 1324, 9436, 197, 71, "Input",ExpressionUUID->"434b9127-0ba0-45d0-be24-2328c0f1571d",
  InitializationCell->False,
  CellID->160966541],
 Cell[CellGroupData[{
-Cell[73279, 1491, 169, 3, 26, "Input",ExpressionUUID->"4c11aa31-912c-4190-8f02-6b92ed15de7f",
+Cell[74449, 1525, 169, 3, 26, "Input",ExpressionUUID->"4c11aa31-912c-4190-8f02-6b92ed15de7f",
  InitializationCell->False,
  CellID->63916258],
-Cell[73451, 1496, 45629, 839, 205, "Output",ExpressionUUID->"f13f3cd2-1bd3-4080-bac8-b5618d894242",
- CellID->58086180]
+Cell[74621, 1530, 45682, 839, 207, "Output",ExpressionUUID->"fc7495f5-db90-4d9a-84c2-55f92355b6ac",
+ CellID->283364139]
 }, Open  ]],
-Cell[119095, 2338, 431, 11, 38, "ExampleText",ExpressionUUID->"5bdf9649-84ee-467b-9f7e-adb70041cb2e",
+Cell[120318, 2372, 431, 11, 40, "ExampleText",ExpressionUUID->"5bdf9649-84ee-467b-9f7e-adb70041cb2e",
  CellID->462557],
 Cell[CellGroupData[{
-Cell[119551, 2353, 18487, 382, 132, "Input",ExpressionUUID->"70e5962e-9fe1-4145-a883-55e3e4a0988f",
+Cell[120774, 2387, 18575, 386, 95, "Input",ExpressionUUID->"70e5962e-9fe1-4145-a883-55e3e4a0988f",
  InitializationCell->False,
  CellID->579168935],
-Cell[138041, 2737, 894, 25, 51, "Output",ExpressionUUID->"51a1c157-39b7-485b-9c1a-4ee8e9a2ad1a",
- CellID->655016440]
+Cell[139352, 2775, 893, 25, 51, "Output",ExpressionUUID->"5b6f9de4-ba2c-4b9d-a5da-2293bce9e86d",
+ CellID->41483167]
 }, Open  ]]
 }, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}]]]],
 Cell[CellGroupData[{
-Cell[139073, 2769, 437, 11, 29, "ExampleSection",ExpressionUUID->"194062bd-6f12-456d-b408-3393c37f1acf",
+Cell[140383, 2807, 437, 11, 32, "ExampleSection",ExpressionUUID->"194062bd-6f12-456d-b408-3393c37f1acf",
  CellID->718363840],
-Cell[139513, 2782, 684, 17, 57, "ExampleText",ExpressionUUID->"18abb749-52ba-4e04-9705-ccca144e82e6",
+Cell[140823, 2820, 684, 17, 61, "ExampleText",ExpressionUUID->"18abb749-52ba-4e04-9705-ccca144e82e6",
  CellID->653984667],
 Cell[CellGroupData[{
-Cell[140222, 2803, 9576, 196, 111, "Input",ExpressionUUID->"1add13dd-43da-4ed2-ac49-16a29568e767",
+Cell[141532, 2841, 9622, 198, 112, "Input",ExpressionUUID->"1add13dd-43da-4ed2-ac49-16a29568e767",
  InitializationCell->False,
  CellID->203697298],
-Cell[149801, 3001, 45631, 839, 205, "Output",ExpressionUUID->"c6e516ff-c6ba-450c-ae54-bf3dd2433f9a",
- CellID->147671871]
+Cell[151157, 3041, 45682, 839, 207, "Output",ExpressionUUID->"f1f93d17-2bb5-4d0f-a02a-ae3872d8a795",
+ CellID->315190734]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[195469, 3845, 304, 8, 42, "Input",ExpressionUUID->"148df361-2c05-4e86-98a4-adf21b5ecc46",
+Cell[196876, 3885, 303, 8, 42, "Input",ExpressionUUID->"148df361-2c05-4e86-98a4-adf21b5ecc46",
  InitializationCell->False,
  CellID->685446895],
-Cell[195776, 3855, 42981, 804, 229, "Output",ExpressionUUID->"3d157cfc-3bd4-4245-9a26-a85d1ee70d2d",
- CellID->219348784]
+Cell[197182, 3895, 43036, 804, 229, "Output",ExpressionUUID->"598de961-817e-4446-9e88-25fdededdc3b",
+ CellID->35466415]
 }, Open  ]]
 }, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "1"}]]]],
-Cell[238873, 4664, 105, 1, 0, "SectionFooterSpacer",ExpressionUUID->"846df6db-09c7-488b-8723-52b513412676",
+Cell[240334, 4704, 105, 1, 0, "SectionFooterSpacer",ExpressionUUID->"846df6db-09c7-488b-8723-52b513412676",
  CellID->98922258]
 }, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection", "0"}]]]],
 Cell[CellGroupData[{
-Cell[239115, 4672, 199, 4, 0, "SeeAlsoSection",ExpressionUUID->"100ac7c8-5cd4-48c3-a66a-f11602a8af19",
+Cell[240576, 4712, 199, 4, 0, "SeeAlsoSection",ExpressionUUID->"100ac7c8-5cd4-48c3-a66a-f11602a8af19",
  CellID->760377303],
-Cell[239317, 4678, 1007, 26, 113, "SeeAlsoSection",ExpressionUUID->"b0d6724e-3509-4075-9408-4c419e5cdc45",
+Cell[240778, 4718, 1007, 26, 113, "SeeAlsoSection",ExpressionUUID->"b0d6724e-3509-4075-9408-4c419e5cdc45",
  CellID->235292849]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[240361, 4709, 202, 4, 0, "TutorialsSection",ExpressionUUID->"71628bca-7d77-4136-a71d-da6e512869d4",
+Cell[241822, 4749, 202, 4, 0, "TutorialsSection",ExpressionUUID->"71628bca-7d77-4136-a71d-da6e512869d4",
  CellID->8416875],
-Cell[240566, 4715, 106, 1, 0, "SectionHeaderSpacer",ExpressionUUID->"b4af44ee-8c02-40e0-8a82-bb247b93ffcf",
+Cell[242027, 4755, 106, 1, 0, "SectionHeaderSpacer",ExpressionUUID->"b4af44ee-8c02-40e0-8a82-bb247b93ffcf",
  CellID->477510352],
-Cell[240675, 4718, 565, 14, 113, "TutorialsSection",ExpressionUUID->"1502aef1-332f-4090-ba78-bf62f65d5eef",
+Cell[242136, 4758, 565, 14, 113, "TutorialsSection",ExpressionUUID->"1502aef1-332f-4090-ba78-bf62f65d5eef",
  CellID->31735609],
-Cell[241243, 4734, 106, 1, 0, "SectionFooterSpacer",ExpressionUUID->"a081734f-370f-478f-91b6-cdfd762dd575",
+Cell[242704, 4774, 106, 1, 0, "SectionFooterSpacer",ExpressionUUID->"a081734f-370f-478f-91b6-cdfd762dd575",
  CellID->176029879]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[241386, 4740, 209, 4, 0, "MoreAboutSection",ExpressionUUID->"689b28a2-40b8-4f4e-a09a-a030d0008d3f",
+Cell[242847, 4780, 209, 4, 0, "MoreAboutSection",ExpressionUUID->"689b28a2-40b8-4f4e-a09a-a030d0008d3f",
  CellID->668780323],
-Cell[241598, 4746, 106, 1, 0, "SectionHeaderSpacer",ExpressionUUID->"793c3401-6853-442e-9f8b-8da52a9353d7",
+Cell[243059, 4786, 106, 1, 0, "SectionHeaderSpacer",ExpressionUUID->"793c3401-6853-442e-9f8b-8da52a9353d7",
  CellID->303172099],
-Cell[241707, 4749, 612, 14, 113, "MoreAboutSection",ExpressionUUID->"b05c2c08-366c-4ae6-86c7-541fb203bfae",
+Cell[243168, 4789, 612, 14, 113, "MoreAboutSection",ExpressionUUID->"b05c2c08-366c-4ae6-86c7-541fb203bfae",
  CellID->603929721],
-Cell[242322, 4765, 106, 1, 0, "SectionFooterSpacer",ExpressionUUID->"ee29b034-a4fe-4416-8f11-763c1615c924",
+Cell[243783, 4805, 106, 1, 0, "SectionFooterSpacer",ExpressionUUID->"ee29b034-a4fe-4416-8f11-763c1615c924",
  CellID->192548025]
 }, Open  ]],
-Cell[242443, 4769, 214, 5, 48, "History",ExpressionUUID->"0c6ff588-e914-40fa-a5df-0967d4cf4cc9",
+Cell[243904, 4809, 214, 5, 48, "History",ExpressionUUID->"0c6ff588-e914-40fa-a5df-0967d4cf4cc9",
  CellID->92345869]
 }
 ]
 *)
-
-(* End of internal cache information *)
 
