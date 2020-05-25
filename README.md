@@ -57,7 +57,7 @@ SetVars[{x,y}];
 $constants={a,b};
 SetMetric[DiagonalMatrix@{a,b}]
 AddTensorToDataset[<|"Symbol"->"A","IndexPosition"->{-1},"Value"->{p[x,y],q[x,y]}|>]
-EvaluateEisteinSummation["\*SuperscriptBox[\(g\), \(pq\)]\*SubscriptBox[\(\[Del]\), \([p\)]\*SubscriptBox[\(\[Del]\), \(\(q\)\(]\)\)]\*SuperscriptBox[\(A\), \(r\)]"]["Value"]//Normal
+EvaluateEinsteinSummation["\*SuperscriptBox[\(g\), \(pq\)]\*SubscriptBox[\(\[Del]\), \([p\)]\*SubscriptBox[\(\[Del]\), \(\(q\)\(]\)\)]\*SuperscriptBox[\(A\), \(r\)]"]["Value"]//Normal
 ```
 
 If you get {0,0} then the package is (probably) working right!
@@ -66,7 +66,7 @@ If you get {0,0} then the package is (probably) working right!
 
 ## Basic Usage
 
-Here we will use a case of figuring out the Killing vector field in a 2-D spherical surface to illustrate the basic workflow of this package.
+As a demonstration of basic workflow, here we will try to figure out the Killing vector field in a 2-D spherical surface.
 
 
 
@@ -117,7 +117,7 @@ Here we encountered our first vector(tensor). To input it, you have two choices:
 **Step 4.** Type in the equation same as the step above and evaluate!!!
 
    ```mathematica
-   res=EvaluateEisteinSummation["\!\(\*SubscriptBox[\(\[Del]\), \((\[Mu]\)]\)\!\(\*SubscriptBox[\(K\), \(\(\[Nu]\)\()\)\)]\)"]
+   res=EvaluateEinsteinSummation["\!\(\*SubscriptBox[\(\[Del]\), \((\[Mu]\)]\)\!\(\*SubscriptBox[\(K\), \(\(\[Nu]\)\()\)\)]\)"]
    ```
 
    Unfortunately, you cannot use TeX Strings here due to some internal bugs of Mathematica.
@@ -138,4 +138,4 @@ so next time when you want to use this you only need to write Q in your string.
 
 
 
-For more details, please check the [wiki page](https://github.com/wjxway/EasyEinsteinSummation/wiki) or the Mathematica documentation built in the package (Not ready yet~).
+For more details, please check the Mathematica documentation built in the package (Working...). (The package is properly written so the documentation can seamlessly integrate into the documentation center!)

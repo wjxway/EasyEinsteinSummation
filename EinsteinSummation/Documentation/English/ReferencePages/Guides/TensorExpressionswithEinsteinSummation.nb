@@ -1,0 +1,605 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     23728,        595]
+NotebookOptionsPosition[     13922,        387]
+NotebookOutlinePosition[     21569,        568]
+CellTagsIndexPosition[     21526,        565]
+WindowTitle->Tensor Expressions with Einstein Summation
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{8},
+           "Spacer1"], Cell[
+          "Einstein Summation Package Guide", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "74b1a0c3-93fb-4688-8202-7df34edce4e2"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "64df3afb-07a9-4adf-aae1-fe90f5c780ac"],
+        Background->RGBColor[0.85098, 0.396078, 0],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell["", "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "69bb8bcf-4341-45a6-94a2-09f83a3ff49b"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"7633ecd6-c543-4a8d-aed9-17e8e4f7d8af"],
+
+Cell[CellGroupData[{
+
+Cell["Tensor Expressions with Einstein Summation", "GuideTitle",
+ CellChangeTimes->{
+  3.799041665831209*^9},ExpressionUUID->"60793320-3bb8-41e6-9855-\
+e473206a8605"],
+
+Cell["\<\
+Einstein Summation Package allows you to compute work with tensors using \
+Einstein summation rules without pain. It supports the most frequently used \
+tensor operations and inherently support processing tensor in curved space.\
+\>", "GuideAbstract",ExpressionUUID->"572256b0-76f8-4fb2-a6e8-35c094303f54"],
+
+Cell["\t", "GuideDelimiterSubsection",ExpressionUUID->"7d6d4a01-36fc-4e28-a125-e1cf70c20299"],
+
+Cell[CellGroupData[{
+
+Cell["Parse Tensor Expressions ", "GuideFunctionsSubsection",ExpressionUUID->"d21ea04d-3ea4-477e-bab2-d2729ebaaece"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{"$tensorSymb", "paclet:EinsteinSummation/ref/$tensorSymb"},
+   "RefLink",
+   BaseStyle->{"InlineFunctionSans"}]], "InlineFunctionSans",ExpressionUUID->
+  "1b30366b-7f51-4e3a-a304-546ff0482d98"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ "Standard header for tensor objects."
+}], "GuideText",
+ CellChangeTimes->{{3.799042485027815*^9, 
+  3.799042485027815*^9}},ExpressionUUID->"e471c484-43d7-484d-8c8e-\
+b7200f9884c1"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{"ParseTensor", "paclet:EinsteinSummation/ref/ParseTensor"},
+   "RefLink",
+   BaseStyle->{"InlineFunctionSans"}]], "InlineFunctionSans",ExpressionUUID->
+  "df08cb5b-5f17-4955-8cca-233930e4285d"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ "Parse all tensors in the input string into standard tensor form. "
+}], "GuideText",
+ CellChangeTimes->{
+  3.7990405116820164`*^9, {3.799042487581235*^9, 
+   3.799042487581235*^9}},ExpressionUUID->"3e936edb-e925-4725-a754-\
+8f75f19987cf"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+   "ParseTensorExpression", 
+    "paclet:EinsteinSummation/ref/ParseTensorExpression"},
+   "RefLink",
+   BaseStyle->{"InlineFunctionSans"}]], "InlineFunctionSans",ExpressionUUID->
+  "3d8c0ec1-5623-4507-8e61-be366c93af78"],
+ " ",
+ StyleBox["\[LongDash]Parse a tensor expression into standard tensor form", 
+  "GuideEmDash"],
+ "."
+}], "GuideText",
+ CellChangeTimes->{{3.7990405485369816`*^9, 3.7990405498084354`*^9}, {
+  3.7990424906162395`*^9, 
+  3.7990424906162395`*^9}},ExpressionUUID->"d82a8e9a-07a3-43fa-ba45-\
+33956813f699"],
+
+Cell["\t", "GuideDelimiterSubsection",ExpressionUUID->"b698002e-3dbb-4998-b04e-1ce217bc342d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Evaluate Tensor Expressions", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.7990405779318857`*^9, 
+  3.7990405821639433`*^9}},ExpressionUUID->"225b72db-8281-4b86-8c86-\
+28292b387771"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+   "EvaluateEinsteinSummation", 
+    "paclet:EinsteinSummation/ref/EvaluateEinsteinSummation"},
+   "RefLink",
+   BaseStyle->{"InlineFunctionSans"}]], "InlineFunctionSans",ExpressionUUID->
+  "03e2d40e-9f04-4d52-8bb8-79eb4dcd531a"],
+ " ",
+ StyleBox["\[LongDash]Evaluate the tensor expression inside using Einstein \
+summation rules.", "GuideEmDash"]
+}], "GuideText",
+ CellChangeTimes->{{3.7990412788552647`*^9, 3.7990412888440475`*^9}, {
+  3.799042493912455*^9, 
+  3.799042493912455*^9}},ExpressionUUID->"a9a97e54-2d1e-4769-b82a-\
+bff23de64f36"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+   "AddTensorToDataset", "paclet:EinsteinSummation/ref/AddTensorToDataset"},
+   "RefLink",
+   BaseStyle->{"InlineFunctionSans"}]], "InlineFunctionSans",ExpressionUUID->
+  "4d2037f3-242a-4c58-b265-c99916a90f1a"],
+ " ",
+ StyleBox["\[LongDash]Define tensor's value.", "GuideEmDash"]
+}], "GuideText",
+ CellChangeTimes->{{3.7990412788552647`*^9, 3.7990412888440475`*^9}, {
+  3.799042493912455*^9, 
+  3.799042493912455*^9}},ExpressionUUID->"8cdcdcd8-7591-4fb3-ae8f-\
+006f5ac8549c"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{"SetVars", "paclet:EinsteinSummation/ref/SetVars"},
+   "RefLink",
+   BaseStyle->{"InlineFunctionSans"}]], "InlineFunctionSans",ExpressionUUID->
+  "d4258e3c-f4ef-4921-b571-f5d07b7f2df0"],
+ " ",
+ StyleBox["\[LongDash]Setup the parameters used to describe the space.", 
+  "GuideEmDash"]
+}], "GuideText",
+ CellChangeTimes->{{3.799041223422163*^9, 3.7990412258677893`*^9}, {
+  3.799042496000782*^9, 
+  3.799042496000782*^9}},ExpressionUUID->"be48a445-cd3a-4126-bc42-\
+494da4404bbb"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{"SetMetric", "paclet:EinsteinSummation/ref/SetMetric"},
+   "RefLink",
+   BaseStyle->{"InlineFunctionSans"}]], "InlineFunctionSans",ExpressionUUID->
+  "9e4d0786-574b-48c2-afca-09de04e74164"],
+ " ",
+ StyleBox["\[LongDash]Setup the metric tensor ", "GuideEmDash"],
+ Cell[BoxData[
+  SubscriptBox["g", "\[Mu]\[Nu]"]],
+  CellChangeTimes->{3.799041361760194*^9},ExpressionUUID->
+  "ec4a44b7-8c0b-4524-875a-861c70222669"],
+ "."
+}], "GuideText",
+ CellChangeTimes->{{3.799041301129798*^9, 3.7990413146291056`*^9}, {
+  3.7990413652076545`*^9, 3.7990413687523584`*^9}, {3.799041488355745*^9, 
+  3.7990414896423798`*^9}, {3.799042498737487*^9, 
+  3.799042498737487*^9}},ExpressionUUID->"07df699b-9d62-400d-9b8d-\
+2138625fe164"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{"AdjustIndex", "paclet:EinsteinSummation/ref/AdjustIndex"},
+   "RefLink",
+   BaseStyle->{"InlineFunctionSans"}]], "InlineFunctionSans",ExpressionUUID->
+  "ddff92d1-d353-4d21-b8ac-f893e81fbf66"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{
+   "ConvertTensorIndex", "paclet:EinsteinSummation/ref/ConvertTensorIndex"},
+   "RefLink",
+   BaseStyle->{"InlineFunctionSans"}]], "InlineFunctionSans",ExpressionUUID->
+  "ac2dd998-0e47-4154-8191-137f7be9e082"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{"FreeIndexes", "paclet:EinsteinSummation/ref/FreeIndexes"},
+   "RefLink",
+   BaseStyle->{"InlineFunctionSans"}]], "InlineFunctionSans",ExpressionUUID->
+  "766a151c-68e5-46c5-96f0-81fc2254e423"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{
+   "FreeParentheses", "paclet:EinsteinSummation/ref/FreeParentheses"},
+   "RefLink",
+   BaseStyle->{"InlineFunctionSans"}]], "InlineFunctionSans",ExpressionUUID->
+  "330e2bc1-1edb-4fb7-b085-a900a549478c"]
+}], "GuideText",
+ CellChangeTimes->{{3.7990425015074387`*^9, 
+  3.799042512851413*^9}},ExpressionUUID->"e587b0b5-bda3-4094-a863-\
+9e5d5040c559"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Global Variables", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.7990405779318857`*^9, 
+  3.799040607718262*^9}},ExpressionUUID->"9a91038f-5548-434c-8930-\
+61e21c5f4451"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+   "$TensorDefinitions", "paclet:EinsteinSummation/ref/$TensorDefinitions"},
+   "RefLink",
+   BaseStyle->{"InlineFunctionSans"}]], "InlineFunctionSans",ExpressionUUID->
+  "ea62fbd9-c470-4314-aa41-cc58c272d013"],
+ " ",
+ StyleBox["\[LongDash]A ", "GuideEmDash"],
+ Cell[BoxData[Cell[BoxData[
+   TemplateBox[{
+     Cell[
+      TextData["Dataset"]], "paclet:ref/Dataset"},
+    "RefLinkPlain",
+    BaseStyle->{"GuideTutorial"}]], "GuideTutorial",ExpressionUUID->
+   "00ef4ab9-719a-433d-a8fe-66106c017ba9"]],ExpressionUUID->
+  "c7157b17-e0b5-443c-b055-3b6a5a606bf9"],
+ StyleBox[" which stores all tensors\[CloseCurlyQuote] definitions", 
+  "GuideEmDash"],
+ "."
+}], "GuideText",
+ CellChangeTimes->{
+  3.7990406620872355`*^9, {3.799042517267803*^9, 3.799042517267803*^9}, {
+   3.7990443611305475`*^9, 3.799044362381425*^9}, {3.799044408715638*^9, 
+   3.79904446350401*^9}},ExpressionUUID->"13033f6d-d896-4e37-bbbf-\
+d7ab31e246af"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{"$vars", "paclet:EinsteinSummation/ref/$vars"},
+   "RefLink",
+   BaseStyle->{"InlineFunctionSans"}]], "InlineFunctionSans",ExpressionUUID->
+  "c4b6dd0b-5a0b-494f-b615-098b9ab13e2b"],
+ "\[NonBreakingSpace]",
+ StyleBox["\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+  "InlineSeparator"],
+ " ",
+ Cell[BoxData[
+  TemplateBox[{"$constants", "paclet:EinsteinSummation/ref/$constants"},
+   "RefLink",
+   BaseStyle->{"InlineFunctionSans"}]], "InlineFunctionSans",ExpressionUUID->
+  "bb15636b-d761-4ba1-add1-3ec38a82dd66"]
+}], "GuideText",
+ CellChangeTimes->{{3.7990425205157995`*^9, 
+  3.799042522816267*^9}},ExpressionUUID->"d756ddfe-7954-4413-b0bc-\
+b2ecacae8c5f"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox["Tutorials", "GuideTutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Einstein Summation"]], 
+           "paclet:EinsteinSummation/ReferencePages/Tutorials/\
+EinsteinSummation"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideTutorial"}]], "GuideTutorial",ExpressionUUID->
+         "58b39bd1-9536-43a5-9e13-ebaeb95ed611"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Symbolic Tensors"]], "paclet:tutorial/SymbolicTensors"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideTutorial"}]], "GuideTutorial",ExpressionUUID->
+         "98ac3592-bd3a-466c-917f-14ff897f4480"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Tensor Symmetries"]], 
+           "paclet:tutorial/TensorSymmetries"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideTutorial"}]], "GuideTutorial",ExpressionUUID->
+         "2b848718-9282-4a0c-b056-4c58071407fc"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Symmetrized Arrays"]], 
+           "paclet:tutorial/SymmetrizedArrays"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideTutorial"}]], "GuideTutorial",ExpressionUUID->
+         "7e796a5b-804f-4dba-8804-3be2ed3a084d"]}]}
+     }]}
+  }]], "GuideTutorialsSection",
+ CellChangeTimes->{{3.799043001633536*^9, 3.799043042461673*^9}, {
+   3.799043198415354*^9, 3.7990432474651175`*^9}, {3.799043548779467*^9, 
+   3.799043593827507*^9}, {3.799043691874606*^9, 3.799043732363278*^9}, 
+   3.7990439232093644`*^9, {3.7990441614344025`*^9, 
+   3.7990441702477818`*^9}},ExpressionUUID->"ce094142-bbef-4acf-a571-\
+0ddb7c5e5f07"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "GuideMoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Symbolic Tensors"]], "paclet:guide/SymbolicTensors"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideMoreAbout"}]], "GuideMoreAbout",ExpressionUUID->
+         "d514d6cc-922d-440c-81bb-dc3ac1e3166d"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Matrix Operations"]], "paclet:guide/MatrixOperations"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideMoreAbout"}]], "GuideMoreAbout",ExpressionUUID->
+         "fcf29e81-c91e-4afb-aeec-0501df0f1f2f"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Vector Analysis"]], "paclet:guide/VectorAnalysis"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideMoreAbout"}]], "GuideMoreAbout",ExpressionUUID->
+         "d96ef48d-91ab-4926-a37e-5f5cc85b7705"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Tensors"]], "paclet:guide/Tensors"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideMoreAbout"}]], "GuideMoreAbout",ExpressionUUID->
+         "98ad8575-4530-4c53-99b6-08dc7f11b20e"]}]}
+     }]}
+  }]], "GuideMoreAboutSection",
+ CellChangeTimes->{{3.799040904870801*^9, 
+  3.799040929816078*^9}},ExpressionUUID->"e235f388-762b-44d7-847c-\
+f1775937fd26"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"e812f1b9-2ca7-4fcf-987b-f30d215ea3b2"]
+},
+Saveable->False,
+WindowSize->{479, 497},
+WindowMargins->{{222, Automatic}, {Automatic, 0}},
+WindowTitle->"Tensor Expressions with Einstein Summation",
+Visible->True,
+TaggingRules->{
+ "NewStyles" -> True, "Openers" -> {}, 
+  "Metadata" -> {
+   "title" -> "Tensor Expressions with Einstein Summation", "description" -> 
+    "", "label" -> " Guide", "context" -> "EinsteinSummation`", "index" -> 
+    True, "language" -> "en", "paclet" -> "", "type" -> "Guide", 
+    "windowtitle" -> "Tensor Expressions with Einstein Summation", "uri" -> 
+    "EinsteinSummation/ReferencePages/Guides/\
+TensorExpressionswithEinsteinSummation", "summary" -> "", "keywords" -> {}, 
+    "WorkflowDockedCell" -> ""}, "LinkTrails" -> "", "SearchTextTranslated" -> 
+  ""},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (March 18, 2020)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> 
+     FrontEnd`FileName[{"Wolfram"}, "Reference.nb", CharacterEncoding -> 
+       "UTF-8"]]], 
+   Cell[
+    StyleData["Spacer1"], TemplateBoxOptions -> {DisplayFunction -> (StyleBox[
+        GraphicsBox[{}, ImageSize -> {#, 0}, 
+         BaselinePosition -> (Scaled[0] -> Baseline)], CacheGraphics -> 
+        False]& ), InterpretationFunction -> (InterpretationBox["", 
+        Spacer[#]]& ), Tooltip -> None}], 
+   Cell[
+    StyleData["Spacer2"], TemplateBoxOptions -> {DisplayFunction -> (StyleBox[
+        GraphicsBox[{}, ImageSize -> {#, #2}, 
+         BaselinePosition -> (Scaled[0] -> Baseline)], CacheGraphics -> 
+        False]& ), InterpretationFunction -> (InterpretationBox["", 
+        Spacer[{#, #2}]]& ), Tooltip -> None}], 
+   Cell[
+    StyleData["RefLinkPlain", StyleDefinitions -> StyleData["RefLink"]]], 
+   Cell[
+    StyleData["OrangeLink"], TemplateBoxOptions -> {DisplayFunction :> (TagBox[
+        ButtonBox[
+         StyleBox[#, FontColor -> Dynamic[
+            If[
+             CurrentValue["MouseOver"], 
+             RGBColor[0.854902, 0.396078, 0.145098], Inherited], 
+            ImageSizeCache -> {63., {0., 9.}}]], ButtonData -> #2], 
+        MouseAppearanceTag["LinkHand"]]& )}, 
+    ButtonBoxOptions -> {BaseStyle -> {"Link", "GuideFunctionsSubsection"}}], 
+   Cell[
+    StyleData["WebLink"], AutoSpacing -> False], 
+   Cell[
+    StyleData["SectionOpener"], ShowGroupOpener -> False, 
+    TemplateBoxOptions -> {DisplayFunction -> (Cell[
+        TextData[{
+          Cell[
+           BoxData[
+            RotationBox[
+             StyleBox[
+              GraphicsBox[{
+                Thickness[0.18], #4, 
+                LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1,
+                PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], 
+              Magnification -> 
+              Dynamic[0.68 CurrentValue[Magnification], 
+                ImageSizeCache -> {28., {0., 9.}}], StripOnInput -> False], 
+             BoxRotation -> FEPrivate`Switch[
+               FrontEnd`CurrentValue[
+                FrontEnd`EvaluationNotebook[], #3], True, 0, Open, 0, 
+               Blank[], Pi/2], BoxRotationPoint -> {-1.65, -1}]]], 
+          Cell[
+           BoxData[
+            TemplateBox[{1}, "Spacer1"]]], #}]]& )}], 
+   Cell[
+    StyleData["LinkSectionHeader"], 
+    CellFrame -> {{False, False}, {False, FEPrivate`$VersionNumber < 12.}}, 
+    WholeCellGroupOpener -> False, CellMargins -> 
+    FEPrivate`If[FEPrivate`$VersionNumber < 11.1, 0, 
+      FEPrivate`If[FEPrivate`$VersionNumber < 12., {{24, 22}, {8, 28}}, -2]], 
+    CellElementSpacings -> {
+     "CellMinHeight" -> 
+      FEPrivate`If[FEPrivate`$VersionNumber < 12., Inherited, 0], 
+      "ClosedCellHeight" -> 
+      FEPrivate`If[FEPrivate`$VersionNumber < 12., Inherited, 0]}, CellOpen -> 
+    FEPrivate`$VersionNumber < 12., 
+    TemplateBoxOptions -> {DisplayFunction -> (#& )}], 
+   Cell[
+    StyleData["SpacerMargins"], CellMargins -> 
+    FEPrivate`If[FEPrivate`$VersionNumber < 11.1, {{29, 24}, {1, 1}}, 
+      FEPrivate`If[
+      FEPrivate`$VersionNumber < 12., {{36, 24}, {0, 2}}, {{24, 22}, {7, 
+       28}}]]], 
+   Cell[
+    StyleData["LinkSectionContent"], CellFrame -> {{False, False}, {False, 
+       FEPrivate`If[FEPrivate`$VersionNumber < 12., False, True]}}, 
+    CellMargins -> 
+    FEPrivate`If[FEPrivate`$VersionNumber < 11.1, {{28, 24}, {25, 14}}, 
+      FEPrivate`If[
+      FEPrivate`$VersionNumber < 12., {{37, 24}, {0, 2}}, {{24, 22}, {7, 
+       28}}]], CellGroupingRules -> "NormalGrouping", FontSize -> 16, 
+    FontWeight -> "Normal", FontColor -> GrayLevel[0.545098], Background -> 
+    None, TemplateBoxOptions -> {
+     DisplayFunction -> 
+      FEPrivate`If[FEPrivate`$VersionNumber < 12., #3& , GridBox[{{
+           DynamicBox[
+            FEPrivate`ImportImage[
+             FrontEnd`FileName[{"Documentation", "FooterIcons"}, #]]], 
+           
+           GridBox[{{#2}, {#3}}, BaseStyle -> {CellFrame -> 0}, 
+            GridBoxSpacings -> {"Rows" -> {0, 0.7}}]}}, 
+         GridBoxSpacings -> {"Columns" -> {{0.9}}}]& ]}, 
+    GridBoxOptions -> {
+     GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+      GridBoxSpacings -> {"Rows" -> {0, {
+           FEPrivate`If[FEPrivate`$VersionNumber < 12., 0.3, 0.2]}}}}], 
+   Cell[
+    StyleData["SectionHeaderSpacer"], CellMargins -> -2, 
+    CellElementSpacings -> {"CellMinHeight" -> 0, "ClosedCellHeight" -> 0}, 
+    CellOpen -> False], 
+   Cell[
+    StyleData["SectionFooterSpacer"], CellMargins -> -2, 
+    CellElementSpacings -> {"CellMinHeight" -> 0, "ClosedCellHeight" -> 0}, 
+    CellOpen -> False], 
+   Cell[
+    StyleData["PacletName"], 
+    TemplateBoxOptions -> {DisplayFunction -> (GridBox[{{
+          ItemBox[
+           Cell[
+            BoxData[
+             RowBox[{
+               TemplateBox[{8}, "Spacer1"], 
+               Cell[#, "PacletNameCell", TextAlignment -> Center], 
+               TemplateBox[{8}, "Spacer1"]}]], TextAlignment -> Center], 
+           Background -> #2, ItemSize -> Full], ""}}, 
+        GridBoxAlignment -> {"Rows" -> {{Center}}}, 
+        GridBoxItemSize -> {"Columns" -> {Full, 
+            Scaled[0.02]}, "Rows" -> {{2.5}}}]& )}], 
+   Cell[
+    StyleData["HeaderMenuArrow"], 
+    TemplateBoxOptions -> {DisplayFunction -> (GraphicsBox[{
+         GrayLevel[
+          Rational[2, 3]], 
+         Thickness[0.13], 
+         LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        ImageSize -> 20, PlotRange -> {{-3, 4}, {-1, 1}}]& )}], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["UnevaluatedInput", StyleDefinitions -> StyleData["Input"]]], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData[
+    "GuideMainSectionHeader", StyleDefinitions -> 
+     StyleData["SeeAlsoSection"]], CellMargins -> -2, 
+    CellElementSpacings -> {
+     "CellMinHeight" -> 0, "ClosedCellHeight" -> 0, "ClosedGroupTopMargin" -> 
+      4}, CellOpen -> False], 
+   Cell[
+    StyleData[
+    "GuideSectionDelimiter", StyleDefinitions -> StyleData["GuideDelimiter"]],
+     CellMargins -> {{26, 24}, {4, 10}}, 
+    CellFrameMargins -> {{0, 0}, {2, 10}}], 
+   Cell[
+    StyleData[
+    "GuideMainDelimiter", StyleDefinitions -> StyleData["GuideDelimiter"]], 
+    CellMargins -> {{26, 24}, {4, 10}}, 
+    CellElementSpacings -> {"CellMinHeight" -> 1}, CellOpen -> True]}, 
+  Visible -> False, FrontEndVersion -> 
+  "12.1 for Microsoft Windows (64-bit) (March 18, 2020)", StyleDefinitions -> 
+  "Default.nb"],
+ExpressionUUID->"7c347508-7633-4fca-8daf-fb53c3d91706"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[614, 21, 892, 23, 62, "AnchorBarGrid",ExpressionUUID->"7633ecd6-c543-4a8d-aed9-17e8e4f7d8af",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[1531, 48, 166, 3, 165, "GuideTitle",ExpressionUUID->"60793320-3bb8-41e6-9855-e473206a8605"],
+Cell[1700, 53, 316, 4, 104, "GuideAbstract",ExpressionUUID->"572256b0-76f8-4fb2-a6e8-35c094303f54"],
+Cell[2019, 59, 93, 0, 21, "GuideDelimiterSubsection",ExpressionUUID->"7d6d4a01-36fc-4e28-a125-e1cf70c20299"],
+Cell[CellGroupData[{
+Cell[2137, 63, 116, 0, 37, "GuideFunctionsSubsection",ExpressionUUID->"d21ea04d-3ea4-477e-bab2-d2729ebaaece"],
+Cell[2256, 65, 469, 12, 27, "GuideText",ExpressionUUID->"e471c484-43d7-484d-8c8e-b7200f9884c1"],
+Cell[2728, 79, 527, 13, 47, "GuideText",ExpressionUUID->"3e936edb-e925-4725-a754-8f75f19987cf"],
+Cell[3258, 94, 575, 16, 47, "GuideText",ExpressionUUID->"d82a8e9a-07a3-43fa-ba45-33956813f699"],
+Cell[3836, 112, 93, 0, 21, "GuideDelimiterSubsection",ExpressionUUID->"b698002e-3dbb-4998-b04e-1ce217bc342d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3966, 117, 193, 3, 37, "GuideFunctionsSubsection",ExpressionUUID->"225b72db-8281-4b86-8c86-28292b387771"],
+Cell[4162, 122, 590, 15, 47, "GuideText",ExpressionUUID->"a9a97e54-2d1e-4769-b82a-bff23de64f36"],
+Cell[4755, 139, 522, 13, 27, "GuideText",ExpressionUUID->"8cdcdcd8-7591-4fb3-ae8f-006f5ac8549c"],
+Cell[5280, 154, 523, 13, 27, "GuideText",ExpressionUUID->"be48a445-cd3a-4126-bc42-494da4404bbb"],
+Cell[5806, 169, 760, 18, 28, "GuideText",ExpressionUUID->"07df699b-9d62-400d-9b8d-2138625fe164"],
+Cell[6569, 189, 1446, 38, 47, "GuideText",ExpressionUUID->"e587b0b5-bda3-4094-a863-9e5d5040c559"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8052, 232, 180, 3, 37, "GuideFunctionsSubsection",ExpressionUUID->"9a91038f-5548-434c-8930-61e21c5f4451"],
+Cell[8235, 237, 968, 25, 49, "GuideText",ExpressionUUID->"13033f6d-d896-4e37-bbbf-d7ab31e246af"],
+Cell[9206, 264, 714, 18, 27, "GuideText",ExpressionUUID->"d756ddfe-7954-4413-b0bc-b2ecacae8c5f"]
+}, Open  ]]
+}, Open  ]],
+Cell[9947, 286, 2098, 51, 169, "GuideTutorialsSection",ExpressionUUID->"ce094142-bbef-4acf-a571-0ddb7c5e5f07"],
+Cell[12048, 339, 1789, 44, 169, "GuideMoreAboutSection",ExpressionUUID->"e235f388-762b-44d7-847c-f1775937fd26"],
+Cell[13840, 385, 78, 0, 24, "FooterCell",ExpressionUUID->"e812f1b9-2ca7-4fcf-987b-f30d215ea3b2"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
